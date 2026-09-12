@@ -1,752 +1,222 @@
-* { 
-    box-sizing: border-box; 
-}
-
-html { 
-    scroll-behavior: smooth; 
-}
-
-body { 
-    margin: 0; 
-    color: #352b24;
-    background-color: #eee4d1;
-    background-image: radial-gradient(#d8c9ad 1px, transparent 1px), linear-gradient(135deg, rgba(255,250,240,.45) 25%, transparent 25%, transparent 75%, rgba(255,250,240,.45) 75%); 
-    background-size: 18px 18px, 36px 36px; 
-    font-family: "Karla", "Trebuchet MS", sans-serif; 
-    line-height: 1.55; 
-}
-
-a { 
-    color: inherit; 
-    text-decoration: none; 
-}
-
-img { 
-    display: block; 
-    width: 100%; 
-    object-fit: cover; 
-}
-
-.section-wrap, .header-inner, .footer-inner { 
-    width: min(1120px, calc(100% - 40px)); 
-    margin-inline: auto; 
-}
-
-.site-header { 
-    position: relative; 
-    border-bottom: 2px solid #d8c9ad; 
-    background: rgba(255, 250, 240, .96); 
-}
-
-.site-header::after { 
-    content: ""; 
-    position: absolute; 
-    right: 0; bottom: -8px; 
-    left: 0; height: 4px; 
-    background: repeating-linear-gradient(135deg, #d8b45f 0 5px, transparent 5px 10px, #a95738 10px 15px, transparent 15px 20px); 
-    opacity: .75; 
-}
-
-.header-inner { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    min-height: 88px; 
-    gap: 20px; 
-}
-
-.brand { 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-    line-height: 1.05; 
-}
-
-.brand-mark { 
-    display: grid; 
-    place-items: center; 
-    width: 37px; height: 37px; 
-    color: #fffaf0;
-    background: #a95738;
-    border-radius: 50%; 
-    font: 700 12px "Bree Serif", Georgia, serif;
-    box-shadow: 0 0 0 3px #fffaf0, 0 0 0 4px #a95738;
-}
-
-.brand strong, .brand small { 
-    display: block; 
-}
-
-.brand strong { 
-    font: 700 16px "Bree Serif", Georgia, serif; 
-}
-
-.brand small { 
-    color: #a95738; 
-    font-size: 16px; 
-    letter-spacing: 1px; 
-    margin-top: 1px; 
-}
-
-.site-nav {
-    border-top: 1px solid #d8c9ad;
-    border-bottom: 1px solid #d8c9ad;
-    background: #fffaf0;
-}
-
-.nav-inner {
-    width: min(1120px, calc(100% - 40px));
-    margin-inline: auto;
-}
-
-.nav-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 26px;
-    margin: 0;
-    padding: 12px 0;
-    list-style: none;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.nav-link {
-    display: block;
-    padding: 3px 0;
-    color: #75675b;
-    text-decoration: none;
-    transition: color .2s;
-}
-
-.nav-link:hover,
-.nav-link.active,
-.text-link:hover { 
-    color: #a95738;
-}
-
-.button { 
-    display: inline-flex; 
-    gap: 18px; 
-    align-items: center; 
-    border: 0; 
-    padding: 14px 18px; 
-    color: #fffaf0;
-    background: #3d5946;
-    font-weight: 700; 
-    font-size: 13px; 
-    transition: transform .2s, background .2s; 
-}
-
-.button:hover { 
-    background: #a95738;
-    transform: translateY(-2px); 
-}
-
-.button-small { 
-    padding: 10px 13px; 
-    font-size: 11px; 
-    gap: 8px; 
-}
-
-.eyebrow { 
-    display: flex; 
-    align-items: center; 
-    gap: 9px; color: #a95738; 
-    font-size: 10px; 
-    font-weight: 700; 
-    letter-spacing: 1.4px; 
-    text-transform: uppercase; 
-}
-
-.eyebrow span { 
-    width: 24px; 
-    height: 2px; 
-    background: #a95738; 
-}
-
-h1, h2, h3, p { 
-    margin-top: 0; 
-}
-
-h1, h2 { 
-    font-family: "Bree Serif", Georgia, serif; 
-    line-height: 1.04; 
-}
-
-h1 { 
-    font-size: clamp(45px, 10vw, 82px); 
-    margin-bottom: 20px; 
-    display: grid;
-    font-size: clamp(35px, 6vw, 57px); 
-    margin-bottom: 20px; 
-}
-
-
-h1 em, h2 em { 
-    color: #a95738; 
-    font-weight: 600; 
-}
-
-.hero { 
-    display: grid; 
-    gap: 46px; 
-    padding-block: 57px 72px; 
-}
-
-.hero-copy { 
-    align-self: center; 
-}
-
-.hero-text { 
-    max-width: 390px; 
-    color: #75675b; 
-    font-size: 15px; 
-}
-
-.hero-actions { 
-    display: flex; 
-    align-items: center; 
-    flex-wrap: wrap; gap: 20px; 
-    margin: 27px 0 25px; 
-
-}
-
-.text-link { 
-    color: #3d5946; 
-    font-size: 13px; 
-    font-weight: 700; 
-}
-
-.hero-note { 
-    color: #75675b; 
-    font-size: 11px; 
-}
-
-.hero-note strong { 
-    color: #3d5946; 
-}
-
-.hero-note span { 
-    padding-inline: 8px; 
-    color: #a95738; 
-}
-
-.hero-visual { 
-    position: relative; 
-    max-width: 510px; 
-}
-
-.hero-visual img { 
-    height: 390px; 
-    border: 8px solid #fffaf0; 
-    outline: 1px solid #a95738; 
-}
-
-.image-stamp { 
-    position: absolute; 
-    top: -18px; 
-    right: -9px; 
-    display: grid; 
-    place-items: center; 
-    width: 90px; 
-    height: 90px; 
-    color: #3d5946; 
-    background: #d8b45f; 
-    border-radius: 50%; 
-    text-align: center; 
-    transform: rotate(9deg); 
-}
-
-.image-stamp strong { 
-    display: block; 
-    font: 700 24px "Bree Serif", Georgia, serif; 
-    line-height: 1; 
-}
-    
-.image-stamp span { 
-    font-size: 10px; 
-    line-height: 1.1; 
-}
-
-.image-caption { 
-    position: absolute; 
-    right: 16px; 
-    bottom: 13px; 
-    margin: 0; 
-    padding: 9px 13px; 
-    color: #fffaf0; 
-    background: rgba(53, 43, 36, .88); 
-    font-size: 10px; 
-    line-height: 1.35; 
-}
-
-.image-caption strong { 
-    font-size: 12px; 
-}
-
-.menu-section { 
-    padding-block: 67px; 
-}
-
-.section-heading { 
-    display: flex; 
-    align-items: end; 
-    justify-content: space-between; 
-    gap: 30px; margin-bottom: 30px; 
-}
-
-.section-heading h2 { 
-    margin-bottom: 0; 
-}
-
-.section-intro { 
-    max-width: 300px; 
-    margin-bottom: 8px; 
-    color: #75675b; 
-    font-size: 13px; 
-}
-
-.menu-grid { 
-    display: grid; 
-    gap: 18px; 
-    grid-template-columns: repeat(3, 1fr); 
-}
-
-.menu-card { 
-    border: 1px solid #d8c9ad; 
-    background: #fffaf0; 
-    box-shadow: 5px 5px 0 rgba(169, 87, 56, .12); 
-}
-
-.menu-card img { 
-    height: 180px; 
-}
-
-.card-body { 
-    padding: 20px; 
-}
-
-.card-body h3 { 
-    margin: 9px 0 4px; font: 700 23px "Bree Serif", Georgia, serif; 
-}
-
-.card-body p { 
-    min-height: 48px; 
-    margin-bottom: 11px; 
-    color: #75675b; 
-    font-size: 12px; 
-}
-
-.card-body strong { 
-    color: #a95738; 
-    font-size: 14px; 
-}
-
-.tag { 
-    display: inline-block; 
-    padding: 4px 8px; 
-    color: #3d5946; 
-    background: #d8b45f; 
-    font-size: 9px; font-weight: 700; 
-    text-transform: uppercase; 
-}
-
-.tag-light { 
-    background: #aeb99b; 
-}
-
-.gallery {
-    padding-block: 35px 70px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-}
-
-.gallery-grid figure {
-    margin: 0;
-    padding: 10px 10px 15px;
-    border: 1px solid #e1d7c4;
-    background: #fffdf8;
-    box-shadow: 3px 5px 0 rgba(53, 43, 36, .12);
-    transform: rotate(-1deg);
-    transition: transform .2s, box-shadow .2s;
-}
-
-.gallery-grid figure:nth-child(even) {
-    transform: rotate(1.2deg);
-}
-
-.gallery-grid figure:hover {
-    z-index: 1;
-    box-shadow: 5px 8px 0 rgba(53, 43, 36, .18);
-    transform: rotate(0) translateY(-4px);
-}
-
-.gallery-grid img {
-    height: 180px;
-}
-
-.gallery-grid figcaption {
-    padding: 12px 4px 0;
-    color: #3d5946;
-    font: 700 14px "Bree Serif", Georgia, serif;
-    text-align: center;
-}
-
-.catalogue { 
-    padding-block: 70px; 
-}
-
-.catalogue-heading { 
-    align-items: center; 
-}
-
-.filter-button { 
-    border: 1px solid #3d5946; 
-    padding: 11px 15px; 
-    color: #3d5946; 
-    background: transparent; 
-    font: 700 12px "Karla", "Trebuchet MS", sans-serif; 
-    cursor: pointer; 
-}
-
-.filter-button:hover { 
-    color: #fffaf0; 
-    background: #3d5946; 
-}
-
-.table-wrap { 
-    overflow-x: auto; 
-    background: #fffaf0; 
-    border: 4px double #a95738; 
-}
-
-.gallery-layout {
-    display: grid;
-    gap: 24px;
-}
-
-.sidebar {
-    align-self: start;
-    padding: 24px;
-    border: 1px solid #d8c9ad;
-    border-top: 5px solid #a95738;
-    background: #fffaf0;
-}
-
-.sidebar h3 {
-    margin: 0 0 10px;
-    color: #3d5946;
-    font: 700 24px "Bree Serif", Georgia, serif;
-}
-
-.sidebar p:not(.eyebrow) {
-    color: #75675b;
-    font-size: 13px;
-}
-
-.sidebar-info {
-    padding-top: 14px;
-    border-top: 1px solid #d8c9ad;
-}
-
-.sidebar-info + .sidebar-info {
-    margin-top: 16px;
-}
-
-.sidebar-info h4 {
-    margin: 0 0 5px;
-    color: #a95738;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-.sidebar-info p {
-    margin-bottom: 0;
-}
-
-.sidebar-info strong {
-    color: #3d5946;
-}
-
-.sidebar-note {
-    margin: 20px 0 0;
-    padding: 12px;
-    background: #f1dfae;
-    font-size: 12px !important;
-}
-
-.sidebar-note strong {
-    color: #3d5946;
-}
-
-.sidebar ul {
-    margin: 18px 0 22px;
-    padding-left: 18px;
-    color: #75675b;
-    font-size: 12px;
-}
-
-.sidebar li + li {
-    margin-top: 8px;
-}
-
-table { 
-    width: 100%; 
-    min-width: 680px; 
-    border-collapse: collapse; 
-    text-align: left; font-size: 12px; 
-}
-
-caption { 
-    padding: 0; 
-    width: 1px; 
-    height: 1px; 
-    overflow: hidden; 
-    position: absolute; 
-    clip: rect(0, 0, 0, 0); 
-}
-
-th, td { 
-    padding: 15px 17px; 
-    border-bottom: 1px solid #d8c9ad; 
-}
-
-thead th { 
-    color: #fffaf0; 
-    background: #3d5946; 
-    font-size: 10px; 
-    letter-spacing: .7px; 
-    text-transform: uppercase; 
-}
-
-tbody tr:nth-child(even):not(.table-note) { 
-    background: #fbf3e3; 
-}
-
-tbody tr:hover:not(.table-note) { 
-    background: #e7ead6; 
-}
-
-.category { 
-    width: 18%; 
-    color: #a95738; 
-    background: #efe2c7; 
-    font: 700 13px "Bree Serif", Georgia, serif; 
-    line-height: 1.2; 
-}
-
-.table-note td { 
-    color: #75675b; 
-    background: #f1dfae; 
-    font-size: 11px; 
-}
-    
-.table-note strong { 
-    color: #3d5946; 
-}
-
-.story { 
-    display: grid; 
-    gap: 38px; 
-    padding-block: 76px; 
-}
-
-.story-image { 
-    position: relative; 
-}
-
-.story-image img { 
-    height: 350px; 
-}
-
-.story-year { 
-    position: absolute; 
-    right: -12px; 
-    bottom: -22px; 
-    display: grid; 
-    place-items: center; 
-    width: 88px; 
-    height: 88px; 
-    color: #fffaf0; 
-    background: #a95738; 
-    border-radius: 50%; 
-    font: 700 25px "Bree Serif", Georgia, serif; 
-    line-height: .8; text-align: center; 
-}
-
-.story-year small { 
-    font: 10px "Karla", "Trebuchet MS", sans-serif; 
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
-}
-
-.story-copy { 
-    align-self: center; 
-}
-
-.story-copy > p:not(.eyebrow) { 
-    max-width: 470px; color: #75675b; 
-    font-size: 14px; 
-}
-
-.story-stats { 
-    display: flex; 
-    gap: 30px; 
-    margin-top: 31px; 
-}
-
-.story-stats strong, .story-stats span { 
-    display: block; 
-}
-
-.story-stats strong { 
-    color: #a95738; 
-    font: 700 25px "Bree Serif", Georgia, serif; 
-}
-
-.story-stats span { 
-    color: #75675b; 
-    font-size: 10px; 
-}
-
-.cta {
-    display: flex; 
-    align-items: end; 
-    justify-content: space-between; 
-    gap: 25px; 
-    margin-top: 70px; 
-    padding-block: 60px; 
-    border-top: 1px solid #d8c9ad; 
-}
-
-.cta h2 { 
-    margin: 0; 
-}
-
-.cta-detail { 
-    text-align: right; 
-}
-
-.cta-detail p { 
-    color: #75675b; 
-    font-size: 12px; 
-}
-
-.cta-detail strong { 
-    color: #3d5946; 
-}
-
-.site-footer { 
-    color: #d9e0d4; 
-    background: #3d5946; 
-}
-
-.footer-inner { 
-    display: grid; 
-    gap: 25px; 
-    align-items: center; 
-    padding-block: 35px; 
-}
-
-.footer-brand { 
-    color: #fffaf0; 
-}
-
-.footer-inner p { 
-    margin: 0; 
-    font-size: 11px; 
-    line-height: 1.7; 
-}
-
-.footer-inner a { 
-    color: #d8b45f; 
-}
-
-.copyright { 
-    color: #aebdae; 
-}
-
-@media (min-width: 700px) { 
-    .hero { 
-        grid-template-columns: 1fr 1fr; 
-        align-items: center; 
-        padding-block: 85px 105px; 
-    }
-    .hero-visual img { 
-        height: 500px; 
-    }
-    .gallery-layout {
-        grid-template-columns: minmax(0, 1fr) 260px;
-        align-items: start;
-    }
-    .gallery-grid {
-        grid-column: 1;
-    }
-    .sidebar {
-        grid-column: 2;
-    }
-    .gallery-grid { 
-        grid-template-columns: repeat(3, minmax(0, 1fr)); 
-    }
-    .gallery-grid img { 
-        height: 150px; 
-    }
-    .story { 
-        grid-template-columns: 1fr 1fr; 
-        align-items: center; 
-        gap: 75px; 
-    }.story-image img { 
-        height: 440px; 
-    }.footer-inner { 
-        grid-template-columns: 1fr 1.4fr 1fr; 
-    }
-    .copyright { 
-        text-align: right; 
-    } 
-}
-
-@media (max-width: 699px) {
-    .header-inner { 
-        width: min(100% - 28px, 1120px); 
-    }.nav-inner { 
-        width: min(100% - 28px, 1120px); 
-    }.section-wrap { 
-        width: min(100% - 28px, 1120px); 
-    }.section-heading, .cta { 
-        display: block; 
-    }
-    .sidebar {
-        grid-column: 1;
-    }
-    .section-intro { 
-        margin-top: 18px; 
-    }.menu-grid { 
-        grid-template-columns: 1fr; 
-    }.menu-card img { 
-        height: 215px; 
-    }.catalogue-heading .filter-button { 
-        margin-top: 20px; 
-    }.cta-detail { 
-        margin-top: 25px; 
-        text-align: left; 
-    }.story-stats { 
-        gap: 17px; 
-    } 
-}
-
-@media print { 
-    .site-header, .hero-actions, .site-footer, .cta, .filter-button { 
-        display: none; 
-    }
-    .menu-section, .catalogue { 
-        padding-block: 20px; 
-    } 
-    body { 
-        background: white; 
-    } 
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Katalog menu dan harga Warung Wong Deso.">
+    <title>Warung Wong Deso | Rasa Ndeso, Hati Legowo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header" id="beranda">
+    <div class="header-inner">
+        <a class="brand" href="#beranda" aria-label="Warung Wong Deso, kembali ke beranda">
+        <span class="brand-mark">WD</span>
+        <span><strong>Warung Wong</strong><small>DESO</small></span>
+        </a>
+    </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navigasi utama">
+        <div class="nav-inner">
+            <ul class="nav-list">
+                <li><a class="nav-link active" href="#beranda">Home</a></li>
+                <li><a class="nav-link" href="#menu">Menu</a></li>
+                <li><a class="nav-link" href="#gallery-title">Galeri</a></li>
+                <li><a class="nav-link" href="#cerita">Cerita Kami</a></li>
+                <li><a class="nav-link" href="#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<main>
+    <section class="hero section-wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+            <p class="eyebrow"><span></span> Warung makan keluarga • sejak 2012</p>
+            <h1 id="hero-title">Rasa ndeso,<br><em>hati legowo.</em></h1>
+            <p class="hero-text">Masakan sederhana, dimasak pelan-pelan dari bahan pilihan.</p>
+            <div class="hero-actions">
+                <a class="button" href="#menu">Lihat menu <span aria-hidden="true">↓</span></a>
+                <a class="text-link" href="#cerita">Kenali warung kami <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-note"><strong>★ 4.9</strong><span>•</span> 2.000+ pelanggan pulang kenyang</div>
+    </div>
+    <div class="hero-visual">
+        <img src="gambar/nasi tumpeng.jpg" alt="Nasi tumpeng dengan lalapan">
+        <div class="image-stamp"><strong>100%</strong><span>resep<br>rumahan</span></div>
+        <p class="image-caption">Dimasak setiap pagi<br><strong>di dapur Wong Deso</strong></p>
+    </div>
+    </section>
+
+    <section class="menu-section section-wrap" id="menu" aria-labelledby="menu-title">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">
+                    <span></span> Pilihan hari ini
+                </p>
+                    <h2 id="menu-title">Menu yang bikin<br><em>kangen rumah.</em>
+                    </h2>
+                </div>
+        <p class="section-intro">Porsi hangat, harga bersahabat. Pilih menu favoritmu atau lihat daftar lengkap di bawah.</p>
+    </div>
+    <div class="menu-grid">
+        <article class="menu-card featured-card">
+            <img src="gambar/Nasi Lele Bakar.jpg" 
+                alt="Nasi Lele Bakar dengan sambal dan lalapan">
+            <div class="card-body"><span class="tag">Paling dicari</span><h3>Lele Bakar</h3><p>Lele bakar, sambal, dan lalapan.</p><strong>Rp 18.000</strong></div>
+        </article>
+        <article class="menu-card">
+            <img src="gambar/Nasi Ayam Goreng.jpeg" 
+                alt="Nasi Ayam Goreng dengan sambal dan lalapan">
+            <div class="card-body"><span class="tag tag-light">Hangat terus</span><h3>Ayam Goreng</h3><p>Ayam goreng, sambal, dan lalapan.</p><strong>Rp 22.000</strong></div>
+        </article>
+        <article class="menu-card">
+            <img src="gambar/Nasi Ayam Bakar.jpeg" 
+                alt="Nasi Ayam Bakar dengan sambal dan lalapan">
+            <div class="card-body"><span class="tag tag-light">Favorit</span><h3>Ayam Bakar</h3><p>Ayam bakar, sambal, dan lalapan.</p><strong>Rp 22.000</strong></div>
+        </article>
+    </div>
+    </section>
+
+    <section class="gallery section-wrap" aria-labelledby="gallery-title">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow"><span></span> Pilihan lengkap</p>
+                <h2 id="gallery-title">Semua menu<br><em>ada di sini.</em></h2>
+            </div>
+            <p class="section-intro">17 foto makanan dan minuman Warung Wong Deso.</p>
+        </div>
+        <div class="gallery-layout">
+        <div class="gallery-grid">
+            <figure><img src="gambar/nasi tumpeng.jpg" 
+                        alt="Nasi tumpeng" loading="lazy"><figcaption>Nasi Tumpeng</figcaption></figure>
+            <figure><img src="gambar/Nasi Ayam Bakar.jpeg"
+                        alt="Nasi ayam bakar" loading="lazy"><figcaption>Nasi Ayam Bakar</figcaption></figure>
+            <figure><img src="gambar/Nasi Ayam Goreng.jpeg" 
+                        alt="Nasi ayam goreng" loading="lazy"><figcaption>Nasi Ayam Goreng</figcaption></figure>
+            <figure><img src="gambar/Nasi Bebek Bakar.jpeg" 
+                        alt="Nasi bebek bakar" loading="lazy"><figcaption>Nasi Bebek Bakar</figcaption></figure>
+            <figure><img src="gambar/Nasi Bebek Goreng.jpeg" 
+                        alt="Nasi bebek goreng" loading="lazy"><figcaption>Nasi Bebek Goreng</figcaption></figure>
+            <figure><img src="gambar/Nasi box.jpeg" 
+                        alt="Nasi kotak" loading="lazy"><figcaption>Nasi Kotak</figcaption></figure>
+            <figure><img src="gambar/Nasi Gila.jpeg" 
+                        alt="Nasi gila" loading="lazy"><figcaption>Nasi Gila</figcaption></figure>
+            <figure><img src="gambar/Nasi Goreng Biasa.jpeg" 
+                        alt="Nasi goreng biasa" loading="lazy"><figcaption>Nasi Goreng Biasa</figcaption></figure>
+            <figure><img src="gambar/Nasi Goreng Spesial.jpeg" 
+                        alt="Nasi goreng spesial" loading="lazy"><figcaption>Nasi Goreng Spesial</figcaption></figure>
+            <figure><img src="gambar/Nasi Lele Bakar.jpg" 
+                        alt="Nasi lele bakar" loading="lazy"><figcaption>Nasi Lele Bakar</figcaption></figure>
+            <figure><img src="gambar/Nasi Lele Goreng.jpeg" 
+                        alt="Nasi lele goreng" loading="lazy"><figcaption>Nasi Lele Goreng</figcaption></figure>
+            <figure><img src="gambar/Nasi Paket.jpeg" 
+                        alt="Nasi paket" loading="lazy"><figcaption>Nasi Paket</figcaption></figure>
+            <figure><img src="gambar/Soto Ayam.jpg" 
+                        alt="Soto ayam" loading="lazy"><figcaption>Soto Ayam</figcaption></figure>
+            <figure><img src="gambar/Tahu goreng.jpg" 
+                        alt="Tahu goreng" loading="lazy"><figcaption>Tahu Goreng</figcaption></figure>
+            <figure><img src="gambar/Tempe goreng.jpg" 
+                        alt="Tempe goreng" loading="lazy"><figcaption>Tempe Goreng</figcaption></figure>
+            <figure><img src="gambar/Es Jeruk.jpg" 
+                        alt="Es jeruk" loading="lazy"><figcaption>Es Jeruk</figcaption></figure>
+            <figure><img src="gambar/Es Teh Manis.jpg" 
+                        alt="Es teh manis" loading="lazy"><figcaption>Es Teh Manis</figcaption></figure>
+        </div>
+        <aside class="sidebar" aria-labelledby="sidebar-title">
+            <p class="eyebrow"><span></span> Panduan menu</p>
+            <h3 id="sidebar-title">Mau pilih yang mana?</h3>
+            <p>Gunakan daftar harga di bawah untuk melihat menu, keterangan, dan harga dengan cepat.</p>
+            <div class="sidebar-info">
+                <h4>Untuk makan kenyang</h4>
+                <p>Pilih menu nasi seperti ayam, lele, bebek, atau nasi goreng.</p>
+            </div>
+            <div class="sidebar-info">
+                <h4>Untuk teman makan</h4>
+                <p>Tambahkan tahu, tempe, sate, atau nasi putih sesuai selera.</p>
+            </div>
+            <div class="sidebar-info">
+                <h4>Urutan memesan</h4>
+                <ul>
+                    <li>Pilih menu utama.</li>
+                    <li>Pilih lauk tambahan.</li>
+                    <li>Pilih minuman.</li>
+                </ul>
+            </div>
+            <p class="sidebar-note"><strong>Tips:</strong> Periksa keterangan menu sebelum memesan agar pilihanmu sesuai.</p>
+        </aside>
+        </div>
+    </section>
+
+    <section class="catalogue section-wrap" id="pesan" aria-labelledby="catalogue-title">
+    <div class="section-heading catalogue-heading"><div><p class="eyebrow"><span></span> Daftar harga</p><h2 id="catalogue-title">Lengkap, jelas,<br><em>tinggal pilih.</em></h2></div><button class="filter-button" type="button" onclick="window.print()">Cetak menu <span aria-hidden="true">⎙</span></button></div>
+    <div class="table-wrap">
+        <table>
+        <caption>Daftar menu dan harga Warung Wong Deso</caption>
+        <thead><tr><th scope="col">Kategori</th><th scope="col">Menu</th><th scope="col">Keterangan</th><th scope="col">Harga</th></tr></thead>
+        <tbody>
+            <tr><th class="category" scope="rowgroup" rowspan="22">Menu<br>Utama
+            <tr><td>Nila Goreng / Bakar (tanpa nasi)</td><td>Nila goreng, sambal, lalapan</td><td>Rp 25.000</td></tr>
+            <tr><td>Nasi Nila Goreng / Bakar</td><td>Nasi Uduk / Biasa, sambal, lalapan</td><td>Rp 30.000</td></tr>
+            <tr><td>Ayam Kremes</td><td>Ayam ungkep, kremes, sambal, lalapan</td><td>Rp 17.000</td></tr>
+            <tr><td>Nasi Ayam Kremes</td><td>Nasi Uduk / Biasa, ayam kremes, sambal, lalapan</td><td>Rp 22.000</td></tr>
+            <tr><td>Ayam Bakar</td><td>Ayam bakar, sambal, lalapan</td><td>Rp 17.000</td></tr>
+            <tr><td>Nasi Ayam Bakar</td><td>Nasi Uduk / Biasa, ayam bakar, sambal, lalapan</td><td>Rp 22.000</td></tr>
+            <tr><td>Lele Goreng / Bakar</td><td>Lele goreng / bakar, sambal, lalapan</td><td>Rp 13.000</td></tr>
+            <tr><td>Nasi Lele Bakar</td><td>Nasi Uduk / Biasa, Lele bakar, sambal, lalapan</td><td>Rp 18.000</td></tr>
+            <tr><td>Bebek Goreng / Bakar</td><td>Bebek goreng / bakar, sambal, lalapan</td><td>Rp 30.000</td></tr>
+            <tr><td>Nasi Bebek Goreng / Bakar</td><td>Nasi Uduk / Biasa, Bebek goreng / bakar, sambal, lalapan</td><td>Rp 35.000</td></tr>
+            <tr><td>Nasi Goreng Biasa</td><td></td><td>Rp 15.000</td></tr>
+            <tr><td>Nasi Goreng Ayam</td><td></td><td>Rp 20.000</td></tr>
+            <tr><td>Nasi Goreng Spesial</td><td></td><td>Rp 25.000</td></tr>
+            <tr><td>Nasi Goreng Gila</td><td></td><td>Rp 20.000</td></tr>
+            <tr><td>Nasi Gila</td><td></td><td>Rp 15.000</td></tr>
+            <tr><td>Mie Goreng Biasa</td><td></td><td>Rp 15.000</td></tr>
+            <tr><td>Mie Goreng Ayam</td><td></td><td>Rp 18.000</td></tr>
+            <tr><td>Bihun Goreng / Kuah</td><td></td><td>Rp 15.000</td></tr>
+            <tr><td>Kwetiau Goreng / Kuah</td><td></td><td>Rp 15.000</td></tr>
+            <tr><td>Soto Ayam</td><td>Kuah bening, ayam suwir, nasi</td><td>Rp 15.000</td></tr>
+            <tr><td>Cap Cay</td><td>Aneka sayur, ayam, bakso</td><td>Rp 15.000</td></tr>
+            
+            <tr><th class="category" scope="rowgroup" rowspan="6">Lauk<br>Tambahan
+            <tr><td>Tempe / Tahu</td><td>Tempe tipis, disajikan hangat</td><td>Rp 2.000</td></tr>
+            <tr><td>Sate Kulit Ayam</td><td></td><td>Rp 3.000</td></tr>
+            <tr><td>Sate Ati Ampela Ayam</td><td></td><td>Rp 5.000</td></tr>
+            <tr><td>Kepala Bebek</td><td></td><td>Rp 7.000</td></tr>
+            <tr><td>Nasi Putih / Uduk</td><td></td><td>Rp 5.000</td></tr>
+            
+            <tr><th class="category" scope="rowgroup" rowspan="4">Minuman
+            <tr><td>Teh Manis (hangat / es)</td><td></td><td>Rp 5.000</td></tr>
+            <tr><td>Kopi Hangat</td><td></td><td>Rp 5.000</td></tr>
+            <tr><td>Jeruk (hangat / es)</td><td></td><td>Rp 5.000</td></tr>
+            <tr><th class="category" scope="rowgroup" rowspan="5">Lainnya
+            <tr class="table-note"><td colspan="4"><strong>Info:</strong> Semua menu dibuat fresh setiap hari. Harga sudah termasuk pajak.</td></tr>
+        </tbody>
+        </table>
+    </div>
+    </section>
+
+    <section class="story section-wrap" id="cerita" aria-labelledby="story-title">
+        <div class="story-image"><img src="gambar/Nasi box.jpeg" alt="Nasi kotak Warung Wong Deso"><span class="story-year">12<br><small>tahun</small></span></div>
+        <div class="story-copy"><p class="eyebrow"><span></span> Cerita di balik rasa</p><h2 id="story-title">Dari pawon kecil,<br><em>untuk meja makanmu.</em></h2><p>Warung Wong Deso lahir dari pawon sederhana milik Ibu Sri Warlin dan Bapak Nurmadi di daerah Jakarta Selatan. Kami percaya makanan enak tidak perlu rumit: cukup bahan segar, waktu yang cukup, dan hati yang tulus.</p><div class="story-stats"><div><strong>12</strong><span>tahun melayani</span></div><div><strong>20+</strong><span>menu enak</span></div><div><strong>100%</strong><span>bahan lokal</span></div></div></div>
+    </section>
+    <section class="cta section-wrap" id="kontak"><div><p class="eyebrow"><span></span> Mampir, yuk</p><h2>Sudah siap<br><em>makan enak?</em></h2></div><div class="cta-detail"><p>Senin - Sabtu<br><strong>09.00 - 20.00 WIB</strong></p><a class="button" href="https://wa.me/6282111053644">Pesan via WhatsApp <span aria-hidden="true">↗</span></a></div></section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="brand footer-brand">
+            <span class="brand-mark">WD</span>
+            <span><strong>Warung Wong</strong><small>DESO</small></span>
+        </div><p>Jl. Raya Lenteng Agung Timur No. 32, Lenteng Agung, Jagakarsa<br>
+            <a href="warungwongdeso@gmail.com">Manganlur@gmail.com</a>
+        </p>
+        <p class="copyright">© 2026 Warung Wong Deso<br>Dibuat dengan rasa.
+        </p>
+    </div>
+</footer>
+</body>
+</html>
