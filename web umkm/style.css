@@ -209,15 +209,8 @@ thead th {
 }
 
 .table-note td {
-    background: #f1dfae !important;
+    background: #f1dfae;
 }
-
-/* .story { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 38px; 
-    padding-block: 76px;
-} */
 
 .site-footer { 
     color: #d9e0d4; 
@@ -235,9 +228,6 @@ thead th {
     .gallery-layout { 
         grid-template-columns: 1fr; 
     }
-    /* .story {
-        grid-template-columns: 1fr;
-    } */
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
     }
