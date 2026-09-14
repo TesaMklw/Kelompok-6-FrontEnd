@@ -175,7 +175,6 @@ img, video, iframe {
     background: #fffaf0;
     padding: 20px;
     border: 1px solid #ccc;
-    overflow-x: auto;
 }
 
 table { 
