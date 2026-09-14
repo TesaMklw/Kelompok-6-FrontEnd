@@ -24,6 +24,24 @@ img, video, iframe {
     max-width: 100%; 
 }
 
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #a95738;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.eyebrow span {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #a95738;
+}
+
 .section-wrap, .header-inner, .footer-inner { 
     width: min(1120px, calc(100% - 40px)); 
     margin-inline: auto; 
@@ -94,38 +112,19 @@ img, video, iframe {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.eyebrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    color: #a95738;
-    font-size: 12px;
+.button {
+    display: inline-block;
+    background-color: #3d5946;
+    color: #fffaf0;
+    padding: 12px 24px;
+    text-decoration: none;
     font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s;
 }
 
-.eyebrow span {
-    width: 20px;
-    height: 2px;
-    background: #a95738;
-}
-
-.hero-text {
-    color: #75675b;
-    font-size: 15px;
-    margin-top: 10px;
-}
-
-.hero-note {
-    color: #75675b;
-    font-size: 13px;
-    margin-top: 15px;
-}
-
-.hero-note strong {
-    color: #3d5946;
+.button:hover {
+    background-color: #2d4636;
 }
 
 .image-stamp {
@@ -146,30 +145,6 @@ img, video, iframe {
     background: #fffaf0;
 }
 
-.sidebar-info {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid #d8c9ad;
-}
-
-.sidebar-info h4 {
-    margin: 0 0 8px;
-    color: #a95738;
-    font-size: 13px;
-    text-transform: uppercase;
-}
-
-.sidebar-note {
-    margin-top: 16px;
-    padding: 12px;
-    background: #f1dfae;
-    font-size: 13px;
-}
-
-.sidebar-note strong {
-    color: #3d5946;
-}
-
 .gallery-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
@@ -185,7 +160,8 @@ img, video, iframe {
 
 .gallery-grid img {
     width: 100%; 
-    height: 150px; 
+    height: 150px;
+    object-fit: cover;
 }
 
 .gallery-grid figcaption {
@@ -199,6 +175,7 @@ img, video, iframe {
     background: #fffaf0;
     padding: 20px;
     border: 1px solid #ccc;
+    overflow-x: auto;
 }
 
 table { 
@@ -235,6 +212,13 @@ thead th {
     background: #f1dfae !important;
 }
 
+/* .story { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 38px; 
+    padding-block: 76px;
+} */
+
 .site-footer { 
     color: #d9e0d4; 
     background: #3d5946; 
@@ -251,6 +235,9 @@ thead th {
     .gallery-layout { 
         grid-template-columns: 1fr; 
     }
+    /* .story {
+        grid-template-columns: 1fr;
+    } */
     .gallery-grid {
         grid-template-columns: 1fr 1fr;
     }
