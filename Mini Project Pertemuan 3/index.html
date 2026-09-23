@@ -2,18 +2,25 @@
 <html lang="id">
 
 <head>
+    <!-- Pengaturan dasar halaman: encoding teks, responsive di HP, judul tab browser -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Katalog menu dan harga Warung Wong Deso.">
     <title>Warung Wong Deso</title>
+
+    <!-- Memanggil font dari Google Fonts: Bree Serif (judul) & Karla (teks biasa) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Karla:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <!-- Menyambungkan ke file CSS terpisah, di sinilah semua warna & tata letak diatur -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- ============ HEADER: logo/nama toko di bagian paling atas ============ -->
+    <!-- id="beranda" dipakai sebagai TUJUAN link (misal saat logo diklik, balik ke atas) -->
     <header class="site-header" id="beranda">
         <div class="header-inner">
             <a class="brand" href="#beranda" aria-label="Warung Wong Deso, kembali ke beranda">
@@ -23,31 +30,46 @@
         </div>
     </header>
 
+    <!-- ============ NAV: menu navigasi (Home, Menu, Galeri, Kontak) ============ -->
+    <!-- Tiap href="#xxx" di sini HARUS punya pasangan id="xxx" di suatu tempat di halaman -->
+    <!-- href="#beranda"      -> nyambung ke <header id="beranda"> di atas -->
+    <!-- href="#menu"         -> nyambung ke <section id="menu"> (tabel harga versi putih) -->
+    <!-- href="#gallery-title" -> nyambung ke <h2 id="gallery-title"> di section galeri -->
+    <!-- href="#kontak"       -> nyambung ke <footer id="kontak"> di paling bawah -->
     <nav class="site-nav" aria-label="Navigasi utama">
         <div class="nav-inner">
             <ul class="nav-list">
                 <li><a class="nav-link active" href="#beranda">Home</a></li>
-                <li><a class="nav-link" href="#gallery-title">Galeri</a></li>
                 <li><a class="nav-link" href="#menu">Menu</a></li>
+                <li><a class="nav-link" href="#gallery-title">Galeri</a></li>
                 <li><a class="nav-link" href="#kontak">Kontak</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
+        <!-- ============ HERO: bagian pembuka besar (judul + foto) ============ -->
+        <!-- Terbagi 2 kolom lewat CSS: .hero-copy (teks, kiri) dan .hero-visual (gambar, kanan) -->
         <section class="hero section-wrap" aria-labelledby="hero-title">
             <div class="hero-copy">
                 <p class="eyebrow"><span></span> Warung makan keluarga • sejak 2012</p>
                 <h1 id="hero-title">Rasa ndeso,<em> hati legowo.</em></h1>
                 <p class="hero-text">Masakan sederhana, dimasak dari bahan-bahan pilihan.</p>
-                <div class="hero-note"><strong>★ 4.9 </strong><span>•</span> 2.000+ pelanggan pulang kenyang</div>
+                <div class="hero-actions">
+                    <!-- Tombol ini lompat ke #menu (tabel harga) kalau diklik -->
+                    <a class="button" href="#menu">Lihat menu <span aria-hidden="true">↓</span></a>
+                </div>
+                <div class="hero-note"><br><strong>★ 4.9 </strong><span>•</span> 2.000+ pelanggan pulang kenyang</div>
             </div>
             <div class="hero-visual">
+                <!-- Ganti foto: tinggal ubah nama file di "src" -->
                 <img src="gambar/nasi tumpeng.jpg" alt="Nasi tumpeng">
                 <div class="image-stamp"><strong>Menu Pilihan: </strong><span>Nasi Tumpeng</span></div>
             </div>
         </section>
 
+        <!-- ============ GALERI: foto-foto menu + sidebar peta lokasi ============ -->
+        <!-- id="gallery-title" ada di <h2> di bawah -> ini TUJUAN link "Galeri" di navbar -->
         <section class="gallery section-wrap" aria-labelledby="gallery-title">
             <div class="section-heading">
                 <div>
@@ -56,64 +78,31 @@
                 <p class="section-intro">Foto Makanan dan minuman di Warung Wong Deso.</p>
             </div>
 
+            <!-- Grid bersarang: gallery-layout (2 kolom besar) berisi gallery-grid (3 kolom foto) + sidebar -->
             <div class="gallery-layout">
                 <article class="gallery-grid">
-                    <figure><img src="gambar/nasi tumpeng.jpg" alt="Nasi Tumpeng" loading="lazy">
-                        <figcaption>Nasi Tumpeng</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Ayam Bakar.jpeg" alt="Nasi Ayam Bakar" loading="lazy">
-                        <figcaption>Nasi Ayam Bakar</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Ayam Goreng.jpeg" alt="Nasi Ayam Goreng" loading="lazy">
-                        <figcaption>Nasi Ayam Goreng</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Bebek Bakar.jpeg" alt="Nasi Bebek Bakar" loading="lazy">
-                        <figcaption>Nasi Bebek Bakar</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Bebek Goreng.jpeg" alt="Nasi Bebek Goreng" loading="lazy">
-                        <figcaption>Nasi Bebek Goreng</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi box.jpeg" alt="Nasi Kotak" loading="lazy">
-                        <figcaption>Nasi Kotak</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Gila.jpeg" alt="Nasi Gila" loading="lazy">
-                        <figcaption>Nasi Gila</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Goreng Biasa.jpeg" alt="Nasi Goreng Biasa" loading="lazy">
-                        <figcaption>Nasi Goreng Biasa</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Goreng Spesial.jpeg" alt="Nasi Goreng Spesial" loading="lazy">
-                        <figcaption>Nasi Goreng Spesial</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Lele Bakar.jpg" alt="Nasi Lele Bakar" loading="lazy">
-                        <figcaption>Nasi Lele Bakar</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Lele Goreng.jpeg" alt="Nasi Lele Goreng" loading="lazy">
-                        <figcaption>Nasi Lele Goreng</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Nasi Paket.jpeg" alt="Nasi Paket" loading="lazy">
-                        <figcaption>Nasi Paket</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Soto Ayam.jpg" alt="Soto Ayam" loading="lazy">
-                        <figcaption>Soto Ayam</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Capcay.jpg" alt="Capcay" loading="lazy">
-                        <figcaption>Capcay</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Tahu goreng.jpg" alt="Tahu Goreng" loading="lazy">
-                        <figcaption>Tahu Goreng</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Tempe goreng.jpg" alt="Tempe Goreng" loading="lazy">
-                        <figcaption>Tempe Goreng</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Es Jeruk.jpg" alt="Es Jeruk" loading="lazy">
-                        <figcaption>Es Jeruk</figcaption>
-                    </figure>
-                    <figure><img src="gambar/Es Teh Manis.jpg" alt="Es Teh Manis" loading="lazy">
-                        <figcaption>Es Teh Manis</figcaption>
-                    </figure>
+                    <!-- Tiap <figure> = satu foto + keterangannya (figcaption) -->
+                    <figure><img src="gambar/nasi tumpeng.jpg" alt="Nasi Tumpeng" loading="lazy"><figcaption>Nasi Tumpeng</figcaption></figure>
+                    <figure><img src="gambar/Nasi Ayam Bakar.jpeg" alt="Nasi Ayam Bakar" loading="lazy"><figcaption>Nasi Ayam Bakar</figcaption></figure>
+                    <figure><img src="gambar/Nasi Ayam Goreng.jpeg" alt="Nasi Ayam Goreng" loading="lazy"><figcaption>Nasi Ayam Goreng</figcaption></figure>
+                    <figure><img src="gambar/Nasi Bebek Bakar.jpeg" alt="Nasi Bebek Bakar" loading="lazy"><figcaption>Nasi Bebek Bakar</figcaption></figure>
+                    <figure><img src="gambar/Nasi Bebek Goreng.jpeg" alt="Nasi Bebek Goreng" loading="lazy"><figcaption>Nasi Bebek Goreng</figcaption></figure>
+                    <figure><img src="gambar/Nasi box.jpeg" alt="Nasi Kotak" loading="lazy"><figcaption>Nasi Kotak</figcaption></figure>
+                    <figure><img src="gambar/Nasi Gila.jpeg" alt="Nasi Gila" loading="lazy"><figcaption>Nasi Gila</figcaption></figure>
+                    <figure><img src="gambar/Nasi Goreng Biasa.jpeg" alt="Nasi Goreng Biasa" loading="lazy"><figcaption>Nasi Goreng Biasa</figcaption></figure>
+                    <figure><img src="gambar/Nasi Goreng Spesial.jpeg" alt="Nasi Goreng Spesial" loading="lazy"><figcaption>Nasi Goreng Spesial</figcaption></figure>
+                    <figure><img src="gambar/Nasi Lele Bakar.jpg" alt="Nasi Lele Bakar" loading="lazy"><figcaption>Nasi Lele Bakar</figcaption></figure>
+                    <figure><img src="gambar/Nasi Lele Goreng.jpeg" alt="Nasi Lele Goreng" loading="lazy"><figcaption>Nasi Lele Goreng</figcaption></figure>
+                    <figure><img src="gambar/Nasi Paket.jpeg" alt="Nasi Paket" loading="lazy"><figcaption>Nasi Paket</figcaption></figure>
+                    <figure><img src="gambar/Soto Ayam.jpg" alt="Soto Ayam" loading="lazy"><figcaption>Soto Ayam</figcaption></figure>
+                    <figure><img src="gambar/Capcay.jpg" alt="Capcay" loading="lazy"><figcaption>Capcay</figcaption></figure>
+                    <figure><img src="gambar/Tahu goreng.jpg" alt="Tahu Goreng" loading="lazy"><figcaption>Tahu Goreng</figcaption></figure>
+                    <figure><img src="gambar/Tempe goreng.jpg" alt="Tempe Goreng" loading="lazy"><figcaption>Tempe Goreng</figcaption></figure>
+                    <figure><img src="gambar/Es Jeruk.jpg" alt="Es Jeruk" loading="lazy"><figcaption>Es Jeruk</figcaption></figure>
+                    <figure><img src="gambar/Es Teh Manis.jpg" alt="Es Teh Manis" loading="lazy"><figcaption>Es Teh Manis</figcaption></figure>
                 </article>
 
+                <!-- aside = konten pelengkap (bukan konten utama), di sini isinya peta lokasi -->
                 <aside class="sidebar" aria-labelledby="sidebar-title">
                     <p class="eyebrow"><span></span> Panduan menu</p>
                     <h3 id="sidebar-title">Mau pilih yang mana?</h3>
@@ -121,8 +110,9 @@
 
                     <div class="sidebar-info">
                         <h4>Lokasi Warung Wong Deso</h4>
+                        <!-- iframe = "menempel" peta Google Maps dari situs lain ke halaman ini -->
                         <iframe
-                            src="https://www.google.com/maps?q=Warung+Wong+Deso,+Jl.+Raya+Lenteng+Agung+Timur+No.+32,+Jagakarsa&output=embed"
+                            src="https://www.google.com/maps?q=Warung+Wong+Deso,+Jl.+Raya+Lenteng+Agung+Timur+No.1,+Jagakarsa&output=embed"
                             width="100%" height="250" style="border:0;" loading="lazy"></iframe>
                     </div>
                     <p class="sidebar-note"><strong>Catatan:</strong> Periksa keterangan menu sebelum memesan agar
@@ -131,15 +121,210 @@
             </div>
         </section>
 
-        <section class="catalogue section-wrap" id="menu" aria-labelledby="catalogue-title">
+        <!-- ============ TABEL HARGA - VERSI 1 (PUTIH) ============ -->
+        <!-- id="menu" -> ini TUJUAN dari link "Menu" di navbar & tombol "Lihat menu" di hero -->
+        <section class="catalogue section-wrap" id="menu" aria-labelledby="catalogue-title-putih">
             <div class="section-heading catalogue-heading">
                 <div>
-                    <h2 id="catalogue-title">Daftar menu dan harga Warung Wong Deso</h2>
+                    <h2 id="catalogue-title-putih" style="margin-bottom: 8px;"><br>Daftar menu dan harga Warung Wong
+                        Deso <span class="version-tag">(versi terang)</span></h2>
                     <p class="eyebrow"><span></span> Enak, murah, <em>dan mengenyangkan.</em></p>
                 </div>
             </div>
 
-            <div class="table-wrap">
+            <!-- class="table-wrap" = style dasar tabel (border, padding) -->
+            <!-- class="table-wrap--light" = TAMBAHAN cuma buat kasih background putih -->
+            <div class="table-wrap table-wrap--light">
+                <table>
+                    <thead>
+                        <!-- Baris judul kolom -->
+                        <tr>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Menu</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- rowspan="21" artinya sel "Menu Utama" ini menggabung 21 baris ke bawah -->
+                        <!-- Kalau nambah/kurang produk di kategori ini, angka 21 ini WAJIB disesuaikan -->
+                        <tr>
+                            <th class="category" scope="rowgroup" rowspan="21">Menu<br>Utama</th>
+                            <td>Nila Goreng / Bakar (tanpa nasi)</td>
+                            <td>Nila goreng, sambal, lalapan</td>
+                            <td>Rp 25.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Nila Goreng / Bakar</td>
+                            <td>Nasi Uduk / Biasa, sambal, lalapan</td>
+                            <td>Rp 30.000</td>
+                        </tr>
+                        <tr>
+                            <td>Ayam Kremes</td>
+                            <td>Ayam ungkep, kremes, sambal, lalapan</td>
+                            <td>Rp 17.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Ayam Kremes</td>
+                            <td>Nasi Uduk / Biasa, ayam kremes, sambal, lalapan</td>
+                            <td>Rp 22.000</td>
+                        </tr>
+                        <tr>
+                            <td>Ayam Bakar</td>
+                            <td>Ayam bakar, sambal, lalapan</td>
+                            <td>Rp 17.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Ayam Bakar</td>
+                            <td>Nasi Uduk / Biasa, ayam bakar, sambal, lalapan</td>
+                            <td>Rp 22.000</td>
+                        </tr>
+                        <tr>
+                            <td>Lele Goreng / Bakar</td>
+                            <td>Lele goreng / bakar, sambal, lalapan</td>
+                            <td>Rp 13.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Lele Bakar</td>
+                            <td>Nasi Uduk / Biasa, Lele bakar, sambal, lalapan</td>
+                            <td>Rp 18.000</td>
+                        </tr>
+                        <tr>
+                            <td>Bebek Goreng / Bakar</td>
+                            <td>Bebek goreng / bakar, sambal, lalapan</td>
+                            <td>Rp 30.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Bebek Goreng / Bakar</td>
+                            <td>Nasi Uduk / Biasa, Bebek goreng / bakar, sambal, lalapan</td>
+                            <td>Rp 35.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Goreng Biasa</td>
+                            <td></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Goreng Ayam</td>
+                            <td></td>
+                            <td>Rp 20.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Goreng Spesial</td>
+                            <td></td>
+                            <td>Rp 25.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Goreng Gila</td>
+                            <td></td>
+                            <td>Rp 20.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Gila</td>
+                            <td></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>Mie Goreng Biasa</td>
+                            <td></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>Mie Goreng Ayam</td>
+                            <td></td>
+                            <td>Rp 18.000</td>
+                        </tr>
+                        <tr>
+                            <td>Bihun Goreng / Kuah</td>
+                            <td></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>Kwetiau Goreng / Kuah</td>
+                            <td></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>Soto Ayam</td>
+                            <td>Kuah bening, ayam suwir, nasi</td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>Cap Cay</td>
+                            <td>Aneka sayur, ayam, bakso</td>
+                            <td>Rp 15.000</td>
+                        </tr>
+
+                        <tr>
+                            <th class="category" scope="rowgroup" rowspan="5">Lauk<br>Tambahan</th>
+                            <td>Tempe / Tahu</td>
+                            <td>Tempe tipis, disajikan hangat</td>
+                            <td>Rp 2.000</td>
+                        </tr>
+                        <tr>
+                            <td>Sate Kulit Ayam</td>
+                            <td></td>
+                            <td>Rp 3.000</td>
+                        </tr>
+                        <tr>
+                            <td>Sate Ati Ampela Ayam</td>
+                            <td></td>
+                            <td>Rp 5.000</td>
+                        </tr>
+                        <tr>
+                            <td>Kepala Bebek</td>
+                            <td></td>
+                            <td>Rp 7.000</td>
+                        </tr>
+                        <tr>
+                            <td>Nasi Putih / Uduk</td>
+                            <td></td>
+                            <td>Rp 5.000</td>
+                        </tr>
+
+                        <tr>
+                            <th class="category" scope="rowgroup" rowspan="3">Minuman</th>
+                            <td>Teh Manis (hangat / es)</td>
+                            <td></td>
+                            <td>Rp 5.000</td>
+                        </tr>
+                        <tr>
+                            <td>Kopi Hangat</td>
+                            <td></td>
+                            <td>Rp 5.000</td>
+                        </tr>
+                        <tr>
+                            <td>Jeruk (hangat / es)</td>
+                            <td></td>
+                            <td>Rp 5.000</td>
+                        </tr>
+
+                        <tr class="table-note">
+                            <td colspan="4"><strong>Info:</strong> Semua menu dibuat fresh setiap hari. Harga sudah
+                                termasuk pajak.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ TABEL HARGA - VERSI 2 (KUNING) ============ -->
+        <!-- Isinya SAMA PERSIS dengan tabel di atas, cuma beda warna background -->
+        <!-- id="menu-kuning" -> beda dari id="menu" di atas, karena satu halaman -->
+        <!-- nggak boleh ada id yang sama dipakai dua kali -->
+        <section class="catalogue section-wrap" id="menu-kuning" aria-labelledby="catalogue-title-kuning">
+            <div class="section-heading catalogue-heading">
+                <div>
+                    <h2 id="catalogue-title-kuning" style="margin-bottom: 8px;"><br>Daftar menu dan harga Warung Wong
+                        Deso <span class="version-tag">(versi kuning)</span></h2>
+                    <p class="eyebrow"><span></span> Enak, murah, <em>dan mengenyangkan.</em></p>
+                </div>
+            </div>
+
+            <!-- class="table-wrap--yellow" ini yang bikin background-nya jadi kuning -->
+            <!-- (bandingkan dengan tabel di atas yang pakai "table-wrap--light") -->
+
+            <div class="table-wrap table-wrap--yellow">
                 <table>
                     <thead>
                         <tr>
@@ -311,12 +496,16 @@
         </section>
     </main>
 
+    <!-- ============ FOOTER: info kontak di paling bawah halaman ============ -->
+    <!-- id="kontak" -> ini TUJUAN dari link "Kontak" di navbar -->
     <footer class="site-footer" id="kontak">
         <div class="footer-inner">
             <div class="brand footer-brand">
                 <span class="brand-mark">WD</span>
                 <span><strong>Warung Wong</strong><small> DESO</small></span>
             </div>
+            <!-- href="mailto:..." = buka aplikasi email kalau diklik -->
+            <!-- href="tel:..."    = langsung nelpon kalau dibuka di HP -->
             <p>Alamat: Jl. Raya Lenteng Agung Timur No. 32, Jagakarsa<br>
                 <a href="mailto:manganlur@gmail.com">Email: manganlur@gmail.com</a><br>
                 <a href="tel:+6282122517112">Telepon: 0821-2251-7112</a>
