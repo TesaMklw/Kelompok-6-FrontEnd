@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Galeri foto menu Warung Wong Deso.">
-    <title>Warung Wong Deso - Galeri</title>
+    <meta name="description" content="Daftar menu, harga, dan form pemesanan Warung Wong Deso.">
+    <title>Warung Wong Deso - Menu</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,115 +35,220 @@
                         <li><a href="home.html#lokasi">Lokasi</a></li>
                     </ul>
                 </li>
-                <li><a class="nav-link active" href="galeri.html">Galeri</a></li>
-                <li><a class="nav-link" href="menu.html">Menu</a></li>
+                <li><a class="nav-link" href="galeri.html">Galeri</a></li>
+                <li><a class="nav-link active" href="menu.html">Menu</a></li>
                 <li><a class="nav-link" href="ulasan.html">Ulasan</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <section class="gallery section-wrap" aria-labelledby="gallery-title">
-            <div class="section-heading">
-                <div>
-                    <h2 id="gallery-title">Foto Menu<em> Warung Wong Deso</em></h2>
+        <!-- ============ MENU (tabel harga) + FORM PEMESANAN berdampingan ============ -->
+        <section class="menu-form-layout section-wrap" id="pesan" aria-labelledby="catalogue-title">
+            <div class="table-side">
+                <h2 id="catalogue-title">Menu</h2>
+                <div class="table-wrap table-wrap--light">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">Menu</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="category" scope="rowgroup" rowspan="21">Menu<br>Utama</th>
+                                <td>Nila Goreng / Bakar (tanpa nasi)</td>
+                                <td>Nila goreng, sambal, lalapan</td>
+                                <td>Rp 25.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Nila Goreng / Bakar</td>
+                                <td>Nasi Uduk / Biasa, sambal, lalapan</td>
+                                <td>Rp 30.000</td>
+                            </tr>
+                            <tr>
+                                <td>Ayam Kremes</td>
+                                <td>Ayam ungkep, kremes, sambal, lalapan</td>
+                                <td>Rp 17.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Ayam Kremes</td>
+                                <td>Nasi Uduk / Biasa, ayam kremes, sambal, lalapan</td>
+                                <td>Rp 22.000</td>
+                            </tr>
+                            <tr>
+                                <td>Ayam Bakar</td>
+                                <td>Ayam bakar, sambal, lalapan</td>
+                                <td>Rp 17.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Ayam Bakar</td>
+                                <td>Nasi Uduk / Biasa, ayam bakar, sambal, lalapan</td>
+                                <td>Rp 22.000</td>
+                            </tr>
+                            <tr>
+                                <td>Lele Goreng / Bakar</td>
+                                <td>Lele goreng / bakar, sambal, lalapan</td>
+                                <td>Rp 13.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Lele Bakar</td>
+                                <td>Nasi Uduk / Biasa, Lele bakar, sambal, lalapan</td>
+                                <td>Rp 18.000</td>
+                            </tr>
+                            <tr>
+                                <td>Bebek Goreng / Bakar</td>
+                                <td>Bebek goreng / bakar, sambal, lalapan</td>
+                                <td>Rp 30.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Bebek Goreng / Bakar</td>
+                                <td>Nasi Uduk / Biasa, Bebek goreng / bakar, sambal, lalapan</td>
+                                <td>Rp 35.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Goreng Biasa</td>
+                                <td></td>
+                                <td>Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Goreng Ayam</td>
+                                <td></td>
+                                <td>Rp 20.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Goreng Spesial</td>
+                                <td></td>
+                                <td>Rp 25.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Goreng Gila</td>
+                                <td></td>
+                                <td>Rp 20.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Gila</td>
+                                <td></td>
+                                <td>Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Mie Goreng Biasa</td>
+                                <td></td>
+                                <td>Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Mie Goreng Ayam</td>
+                                <td></td>
+                                <td>Rp 18.000</td>
+                            </tr>
+                            <tr>
+                                <td>Bihun Goreng / Kuah</td>
+                                <td></td>
+                                <td>Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kwetiau Goreng / Kuah</td>
+                                <td></td>
+                                <td>Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Soto Ayam</td>
+                                <td>Kuah bening, ayam suwir, nasi</td>
+                                <td>Rp 15.000</td>
+                            </tr>
+                            <tr>
+                                <td>Cap Cay</td>
+                                <td>Aneka sayur, ayam, bakso</td>
+                                <td>Rp 15.000</td>
+                            </tr>
+
+                            <tr>
+                                <th class="category" scope="rowgroup" rowspan="5">Lauk<br>Tambahan</th>
+                                <td>Tempe / Tahu</td>
+                                <td>Tempe tipis, disajikan hangat</td>
+                                <td>Rp 2.000</td>
+                            </tr>
+                            <tr>
+                                <td>Sate Kulit Ayam</td>
+                                <td></td>
+                                <td>Rp 3.000</td>
+                            </tr>
+                            <tr>
+                                <td>Sate Ati Ampela Ayam</td>
+                                <td></td>
+                                <td>Rp 5.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kepala Bebek</td>
+                                <td></td>
+                                <td>Rp 7.000</td>
+                            </tr>
+                            <tr>
+                                <td>Nasi Putih / Uduk</td>
+                                <td></td>
+                                <td>Rp 5.000</td>
+                            </tr>
+
+                            <tr>
+                                <th class="category" scope="rowgroup" rowspan="3">Minuman</th>
+                                <td>Teh Manis (hangat / es)</td>
+                                <td></td>
+                                <td>Rp 5.000</td>
+                            </tr>
+                            <tr>
+                                <td>Kopi Hangat</td>
+                                <td></td>
+                                <td>Rp 5.000</td>
+                            </tr>
+                            <tr>
+                                <td>Jeruk (hangat / es)</td>
+                                <td></td>
+                                <td>Rp 5.000</td>
+                            </tr>
+
+                            <tr class="table-note">
+                                <td colspan="4"><strong>Info:</strong> Semua menu dibuat fresh setiap hari. Harga
+                                    sudah termasuk pajak.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <p class="section-intro">Foto Makanan dan minuman di Warung Wong Deso.</p>
             </div>
 
-            <div class="gallery-layout">
-                <div>
-                    <!-- Filter kategori: dropdown pilihan (select), belum difungsikan dengan
-                         JavaScript karena materi kelas belum membahas scripting -->
-                    <div class="filter-bar">
-                        <label for="kategori">Kategori</label>
-                        <select id="kategori" name="kategori">
-                            <option value="semua">Semua</option>
-                            <option value="menu-utama">Menu Utama</option>
-                            <option value="lauk-tambahan">Lauk Tambahan</option>
-                            <option value="minuman">Minuman</option>
-                        </select>
-                    </div>
+            <div class="form-side">
+                <h2>Form Pemesanan</h2>
+                <form class="order-form" action="#" method="post">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama" required>
 
-                    <article class="gallery-grid">
-                        <figure><img src="gambar/nasi tumpeng.jpg" alt="Nasi Tumpeng" loading="lazy">
-                            <figcaption>Nasi Tumpeng</figcaption>
-                        </figure>
-                        <figure><img src="gambar/Nasi Ayam Bakar.jpeg" alt="Nasi Ayam Bakar" loading="lazy">
-                            <figcaption>Nasi Ayam Bakar</figcaption>
-                            <p class="price">Rp 22.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi Ayam Goreng.jpeg" alt="Nasi Ayam Goreng" loading="lazy">
-                            <figcaption>Nasi Ayam Goreng</figcaption>
-                        </figure>
-                        <figure><img src="gambar/Nasi Bebek Bakar.jpeg" alt="Nasi Bebek Bakar" loading="lazy">
-                            <figcaption>Nasi Bebek Bakar</figcaption>
-                            <p class="price">Rp 35.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi Bebek Goreng.jpeg" alt="Nasi Bebek Goreng" loading="lazy">
-                            <figcaption>Nasi Bebek Goreng</figcaption>
-                            <p class="price">Rp 35.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi box.jpeg" alt="Nasi Kotak" loading="lazy">
-                            <figcaption>Nasi Kotak</figcaption>
-                        </figure>
-                        <figure><img src="gambar/Nasi Gila.jpeg" alt="Nasi Gila" loading="lazy">
-                            <figcaption>Nasi Gila</figcaption>
-                            <p class="price">Rp 15.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi Goreng Biasa.jpeg" alt="Nasi Goreng Biasa" loading="lazy">
-                            <figcaption>Nasi Goreng Biasa</figcaption>
-                            <p class="price">Rp 15.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi Goreng Spesial.jpeg" alt="Nasi Goreng Spesial" loading="lazy">
-                            <figcaption>Nasi Goreng Spesial</figcaption>
-                            <p class="price">Rp 25.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi Lele Bakar.jpg" alt="Nasi Lele Bakar" loading="lazy">
-                            <figcaption>Nasi Lele Bakar</figcaption>
-                            <p class="price">Rp 18.000</p>
-                        </figure>
-                        <figure><img src="gambar/Nasi Lele Goreng.jpeg" alt="Nasi Lele Goreng" loading="lazy">
-                            <figcaption>Nasi Lele Goreng</figcaption>
-                        </figure>
-                        <figure><img src="gambar/Nasi Paket.jpeg" alt="Nasi Paket" loading="lazy">
-                            <figcaption>Nasi Paket</figcaption>
-                        </figure>
-                        <figure><img src="gambar/Soto Ayam.jpg" alt="Soto Ayam" loading="lazy">
-                            <figcaption>Soto Ayam</figcaption>
-                            <p class="price">Rp 15.000</p>
-                        </figure>
-                        <figure><img src="gambar/Capcay.jpg" alt="Capcay" loading="lazy">
-                            <figcaption>Capcay</figcaption>
-                            <p class="price">Rp 15.000</p>
-                        </figure>
-                        <figure><img src="gambar/Tahu goreng.jpg" alt="Tahu Goreng" loading="lazy">
-                            <figcaption>Tahu Goreng</figcaption>
-                            <p class="price">Rp 2.000</p>
-                        </figure>
-                        <figure><img src="gambar/Tempe goreng.jpg" alt="Tempe Goreng" loading="lazy">
-                            <figcaption>Tempe Goreng</figcaption>
-                            <p class="price">Rp 2.000</p>
-                        </figure>
-                        <figure><img src="gambar/Es Jeruk.jpg" alt="Es Jeruk" loading="lazy">
-                            <figcaption>Es Jeruk</figcaption>
-                            <p class="price">Rp 5.000</p>
-                        </figure>
-                        <figure><img src="gambar/Es Teh Manis.jpg" alt="Es Teh Manis" loading="lazy">
-                            <figcaption>Es Teh Manis</figcaption>
-                            <p class="price">Rp 5.000</p>
-                        </figure>
-                    </article>
-                </div>
+                    <label for="whatsapp">Nomor WhatsApp</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="08xxxxxxxxxx" required>
 
-                <aside class="sidebar" aria-labelledby="sidebar-title">
-                    <p class="eyebrow"><span></span> Panduan menu</p>
-                    <h3 id="sidebar-title">Mau pilih yang mana?</h3>
-                    <p>Baca daftar harga di halaman Menu untuk melihat detail menu, keterangan, dan harga.</p>
-                    <p><a class="button" href="menu.html">Lihat daftar harga</a></p>
-                    <p class="sidebar-note"><strong>Catatan:</strong> Periksa keterangan menu sebelum memesan agar
-                        pilihanmu sesuai.</p>
-                </aside>
+                    <label for="pilih-menu">Pilih Menu</label>
+                    <select id="pilih-menu" name="pilih_menu" required>
+                        <option value="">Pilih menu</option>
+                        <option value="nasi-ayam-bakar">Nasi Ayam Bakar</option>
+                        <option value="nasi-lele-bakar">Nasi Lele Bakar</option>
+                        <option value="nasi-bebek-goreng-bakar">Nasi Bebek Goreng / Bakar</option>
+                        <option value="nasi-goreng-spesial">Nasi Goreng Spesial</option>
+                        <option value="soto-ayam">Soto Ayam</option>
+                        <option value="cap-cay">Cap Cay</option>
+                        <option value="es-teh-manis">Es Teh Manis</option>
+                        <option value="es-jeruk">Es Jeruk</option>
+                    </select>
+
+                    <label for="jumlah">Jumlah</label>
+                    <input type="number" id="jumlah" name="jumlah" min="1" value="1" placeholder="Jumlah pesanan"
+                        required>
+
+                    <label for="catatan">Catatan</label>
+                    <textarea id="catatan" name="catatan" placeholder="Tambahkan catatan pesanan..."></textarea>
+
+                    <button type="submit">Kirim Pesanan</button>
+                </form>
             </div>
         </section>
     </main>
