@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galeri foto menu Warung Wong Deso.">
+    <title>Warung Wong Deso - Galeri</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Karla:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="home.html" aria-label="Warung Wong Deso, kembali ke beranda">
+                <span class="brand-mark">WD</span>
+                <span><strong>Warung Wong</strong><small> DESO</small></span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navigasi utama">
+        <div class="nav-inner">
+            <ul class="nav-list">
+                <li>
+                    <a class="nav-link" href="home.html">Home &#9662;</a>
+                    <ul class="submenu">
+                        <li><a href="home.html#tentang">Tentang Kami</a></li>
+                        <li><a href="home.html#lokasi">Lokasi</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link active" href="galeri.html">Galeri</a></li>
+                <li><a class="nav-link" href="menu.html">Menu</a></li>
+                <li><a class="nav-link" href="ulasan.html">Ulasan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="gallery section-wrap" aria-labelledby="gallery-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="gallery-title">Foto Menu<em> Warung Wong Deso</em></h2>
+                </div>
+                <p class="section-intro">Foto Makanan dan minuman di Warung Wong Deso.</p>
+            </div>
+
+            <div class="gallery-layout">
+                <div>
+                    <!-- Filter kategori: dropdown pilihan (select), belum difungsikan dengan
+                         JavaScript karena materi kelas belum membahas scripting -->
+                    <div class="filter-bar">
+                        <label for="kategori">Kategori</label>
+                        <select id="kategori" name="kategori">
+                            <option value="semua">Semua</option>
+                            <option value="menu-utama">Menu Utama</option>
+                            <option value="lauk-tambahan">Lauk Tambahan</option>
+                            <option value="minuman">Minuman</option>
+                        </select>
+                    </div>
+
+                    <article class="gallery-grid">
+                        <figure><img src="gambar/nasi tumpeng.jpg" alt="Nasi Tumpeng" loading="lazy">
+                            <figcaption>Nasi Tumpeng</figcaption>
+                        </figure>
+                        <figure><img src="gambar/Nasi Ayam Bakar.jpeg" alt="Nasi Ayam Bakar" loading="lazy">
+                            <figcaption>Nasi Ayam Bakar</figcaption>
+                            <p class="price">Rp 22.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi Ayam Goreng.jpeg" alt="Nasi Ayam Goreng" loading="lazy">
+                            <figcaption>Nasi Ayam Goreng</figcaption>
+                        </figure>
+                        <figure><img src="gambar/Nasi Bebek Bakar.jpeg" alt="Nasi Bebek Bakar" loading="lazy">
+                            <figcaption>Nasi Bebek Bakar</figcaption>
+                            <p class="price">Rp 35.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi Bebek Goreng.jpeg" alt="Nasi Bebek Goreng" loading="lazy">
+                            <figcaption>Nasi Bebek Goreng</figcaption>
+                            <p class="price">Rp 35.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi box.jpeg" alt="Nasi Kotak" loading="lazy">
+                            <figcaption>Nasi Kotak</figcaption>
+                        </figure>
+                        <figure><img src="gambar/Nasi Gila.jpeg" alt="Nasi Gila" loading="lazy">
+                            <figcaption>Nasi Gila</figcaption>
+                            <p class="price">Rp 15.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi Goreng Biasa.jpeg" alt="Nasi Goreng Biasa" loading="lazy">
+                            <figcaption>Nasi Goreng Biasa</figcaption>
+                            <p class="price">Rp 15.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi Goreng Spesial.jpeg" alt="Nasi Goreng Spesial" loading="lazy">
+                            <figcaption>Nasi Goreng Spesial</figcaption>
+                            <p class="price">Rp 25.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi Lele Bakar.jpg" alt="Nasi Lele Bakar" loading="lazy">
+                            <figcaption>Nasi Lele Bakar</figcaption>
+                            <p class="price">Rp 18.000</p>
+                        </figure>
+                        <figure><img src="gambar/Nasi Lele Goreng.jpeg" alt="Nasi Lele Goreng" loading="lazy">
+                            <figcaption>Nasi Lele Goreng</figcaption>
+                        </figure>
+                        <figure><img src="gambar/Nasi Paket.jpeg" alt="Nasi Paket" loading="lazy">
+                            <figcaption>Nasi Paket</figcaption>
+                        </figure>
+                        <figure><img src="gambar/Soto Ayam.jpg" alt="Soto Ayam" loading="lazy">
+                            <figcaption>Soto Ayam</figcaption>
+                            <p class="price">Rp 15.000</p>
+                        </figure>
+                        <figure><img src="gambar/Capcay.jpg" alt="Capcay" loading="lazy">
+                            <figcaption>Capcay</figcaption>
+                            <p class="price">Rp 15.000</p>
+                        </figure>
+                        <figure><img src="gambar/Tahu goreng.jpg" alt="Tahu Goreng" loading="lazy">
+                            <figcaption>Tahu Goreng</figcaption>
+                            <p class="price">Rp 2.000</p>
+                        </figure>
+                        <figure><img src="gambar/Tempe goreng.jpg" alt="Tempe Goreng" loading="lazy">
+                            <figcaption>Tempe Goreng</figcaption>
+                            <p class="price">Rp 2.000</p>
+                        </figure>
+                        <figure><img src="gambar/Es Jeruk.jpg" alt="Es Jeruk" loading="lazy">
+                            <figcaption>Es Jeruk</figcaption>
+                            <p class="price">Rp 5.000</p>
+                        </figure>
+                        <figure><img src="gambar/Es Teh Manis.jpg" alt="Es Teh Manis" loading="lazy">
+                            <figcaption>Es Teh Manis</figcaption>
+                            <p class="price">Rp 5.000</p>
+                        </figure>
+                    </article>
+                </div>
+
+                <aside class="sidebar" aria-labelledby="sidebar-title">
+                    <p class="eyebrow"><span></span> Panduan menu</p>
+                    <h3 id="sidebar-title">Mau pilih yang mana?</h3>
+                    <p>Baca daftar harga di halaman Menu untuk melihat detail menu, keterangan, dan harga.</p>
+                    <p><a class="button" href="menu.html">Lihat daftar harga</a></p>
+                    <p class="sidebar-note"><strong>Catatan:</strong> Periksa keterangan menu sebelum memesan agar
+                        pilihanmu sesuai.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="kontak">
+        <div class="footer-inner">
+            <div class="brand footer-brand">
+                <span class="brand-mark">WD</span>
+                <span><strong>Warung Wong</strong><small> DESO</small></span>
+            </div>
+            <p>Alamat: Jl. Raya Lenteng Agung Timur No. 32, Jagakarsa<br>
+                <a href="mailto:manganlur@gmail.com">Email: manganlur@gmail.com</a><br>
+                <a href="tel:+6282122517112">Telepon: 0821-2251-7112</a>
+            </p>
+            <p class="hours">
+                Jam Buka:<br>
+                Senin - Sabtu: 09.00 - 21.00 WIB<br>
+                Minggu: 09.00 - 20.00 WIB
+            </p>
+            <p class="copyright">© 2026 Warung Wong Deso</p>
+        </div>
+    </footer>
+</body>
+
+</html>
