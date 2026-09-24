@@ -81,6 +81,9 @@ img, video, iframe {
 }
 
 .site-nav {
+    position: sticky; /* tetap terlihat saat scroll ke bawah */
+    top: 0;
+    z-index: 40;
     border-top: 1px solid #d8c9ad;
     border-bottom: 1px solid #d8c9ad;
     background: #fffaf0;
@@ -314,10 +317,28 @@ img, video, iframe {
 
 table {
     width: 100%;
-    border-collapse: collapse; 
+    table-layout: fixed; /* lebar kolom mengikuti nilai width di bawah */
+    border-collapse: collapse; /* garis antar sel jadi satu garis tipis, bukan dobel */
     text-align: left;
     font-size: 14px;
 }
+ 
+/* Lebar tiap kolom */
+th:nth-child(1), td:nth-child(1) { 
+    width: 16%; 
+}
+
+th:nth-child(2), td:nth-child(2) { 
+    width: 28%; 
+}
+
+th:nth-child(3), td:nth-child(3) { 
+    width: 40%; 
+}
+
+th:nth-child(4), td:nth-child(4) { 
+    width: 16%; 
+} 
 
 th, td {
     border: 1px solid #ccc;
