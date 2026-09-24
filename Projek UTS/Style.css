@@ -1,12 +1,12 @@
-/* ============================================================
-   RESET DASAR - berlaku untuk SEMUA elemen di halaman
-   ============================================================ */
+/* ===========
+   RESET DASAR
+   =========== */
 * {
     box-sizing: border-box;  /* padding & border tidak menambah lebar total elemen */
 }
 
 html {
-    scroll-behavior: smooth;  /* bikin klik link nav jadi scroll halus, bukan loncat kasar */
+    scroll-behavior: smooth;  /* bikin klik link nav jadi scroll halus */
 }
 
 body {
@@ -18,22 +18,21 @@ body {
 }
 
 a {
-    color: inherit;          /* link ikut warna teks di sekitarnya, bukan biru default */
-    text-decoration: none;   /* hilangkan garis bawah default link */
+    color: inherit;          /* link ikut warna teks lainnya, (bukan biru) */
+    text-decoration: none;   /* hilangkan garis bawah link */
 }
 
 img, video, iframe {
     display: block;
-    max-width: 100%;   /* gambar/video/peta tidak akan melebihi lebar containernya */
+    max-width: 100%;   /* gambar/video/peta tidak akan melebihi lebar container */
 }
 
 
-/* ============================================================
-   EYEBROW - label kecil dekoratif (dipakai di beberapa tempat:
-   hero, sidebar, judul tabel, tentang kami, lokasi)
-   ============================================================ */
+/* =======
+   EYEBROW
+   ======= */
 .eyebrow {
-    display: inline-flex;    /* biar lebarnya cuma sepanjang isinya, gampang di-center */
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
@@ -44,7 +43,6 @@ img, video, iframe {
 }
 
 .eyebrow span {
-    /* <span></span> kosong di HTML ini diubah jadi garis kecil dekoratif */
     display: inline-block;
     width: 20px;
     height: 2px;
@@ -52,20 +50,19 @@ img, video, iframe {
 }
 
 
-/* ============================================================
-   LEBAR KONTEN - dipakai di banyak section biar isinya nggak
-   mepet ke tepi layar dan selalu center
-   ============================================================ */
+/* ============
+   LEBAR KONTEN
+   ============ */
 .section-wrap, .header-inner, .footer-inner {
-    width: min(1120px, calc(100% - 40px));  /* max 1120px, tapi kasih jarak 40px di layar sempit */
-    margin-inline: auto;  /* bikin konten ke tengah horizontal */
+    width: min(1120px, calc(100% - 40px));
+    margin-inline: auto;
     text-align: center;
 }
 
 
-/* ============================================================
+/* ==============================================
    HEADER & NAVIGASI (bagian paling atas halaman)
-   ============================================================ */
+   ============================================== */
 .site-header {
     position: relative;
     border-bottom: 2px solid #d8c9ad;
@@ -99,8 +96,8 @@ img, video, iframe {
 }
 
 .nav-list li {
-    position: relative;      /* jadi acuan posisi buat submenu (position: absolute) di bawahnya */
-    display: inline-block;   /* bikin menu tersusun sejajar horizontal, bukan menumpuk vertikal */
+    position: relative;
+    display: inline-block;
 }
 
 .nav-link {
@@ -115,9 +112,7 @@ img, video, iframe {
     color: #3d5946;
 }
 
-/* ---- Menu Pulldown (dropdown) pada item "Home" ----
-   Struktur: <li> menu utama berisi <ul class="submenu"> di dalamnya.
-   Submenu disembunyikan (display:none) dan baru tampil saat <li> induknya di-hover. */
+/* ---- Menu Pulldown (dropdown) pada item "Home" ---- */
 .submenu {
     display: none;
     position: absolute;
@@ -154,12 +149,12 @@ img, video, iframe {
 }
 
 
-/* ============================================================
+/* ==========================================
    HERO - bagian pembuka besar (judul + foto)
-   ============================================================ */
+   ========================================== */
 .hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* dibagi 2 kolom sama lebar: teks & gambar */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
     padding-top: 40px;
@@ -172,8 +167,8 @@ img, video, iframe {
 
 .hero-visual img {
     width: 100%;
-    aspect-ratio: 1 / 1;      /* foto dipaksa jadi persegi (1:1) */
-    object-fit: cover;        /* foto di-crop otomatis biar pas, nggak gepeng */
+    aspect-ratio: 1 / 1; /* foto jadi persegi (1:1) */
+    object-fit: cover; /* foto di-crop */
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -189,11 +184,10 @@ img, video, iframe {
     cursor: pointer;
     font-family: inherit;
     font-size: 14px;
-    transition: background-color 0.3s;  /* biar perubahan warna pas hover halus, bukan tiba-tiba */
+    transition: background-color 0.3s;  /* agar transisi pas hover tidak tiba-tiba */
 }
 
 .button:hover {
-    /* :hover = aturan ini berlaku CUMA pas kursor mouse nempel di tombol */
     background-color: #2d4636;
 }
 
@@ -203,9 +197,9 @@ img, video, iframe {
 }
 
 
-/* ============================================================
+/* =======================================
    TENTANG KAMI + STATISTIK (halaman Home)
-   ============================================================ */
+   ======================================= */
 .about {
     padding-block: 65px;
 }
@@ -241,9 +235,9 @@ img, video, iframe {
 }
 
 
-/* ============================================================
+/* =====================
    LOKASI (halaman Home)
-   ============================================================ */
+   ===================== */
 .location {
     padding-block: 10px 70px;
 }
@@ -270,95 +264,57 @@ img, video, iframe {
 }
 
 
-/* ============================================================
-   GALERI FOTO - grid bersarang: gallery-layout (2 kolom besar)
-   berisi gallery-grid (3 kolom foto) + sidebar
-   ============================================================ */
-.gallery-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;  /* kolom kiri (foto) 2x lebih lebar dari kolom kanan (sidebar) */
-    gap: 20px;
-    margin: auto;
-}
-
-.sidebar {
-    padding: 24px;
-    border: 1px solid #d8c9ad;
-    background: #fffaf0;
-}
-
-.filter-bar {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.filter-bar label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-
-.filter-bar select {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fffaf0;
-    font-family: inherit;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;  /* 3 kolom foto sama lebar */
-    gap: 14px;
-}
-
-.gallery-grid figure {
-    margin: 0;
-    padding: 10px;
-    border: 1px solid #e1d7c4;
-    background: #fffdf8;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;   /* WAJIB ada ini biar foto beda ukuran/rasio tetap rapi, nggak gepeng */
-}
-
-.gallery-grid figcaption {
-    padding-top: 10px;
-    text-align: center;
-    font-weight: bold;
-    color: #3d5946;
-}
-
-.gallery-grid .price {
-    text-align: center;
-    color: #a95738;
-    font-weight: bold;
-    margin-top: 2px;
-}
+/* ===========
+   GALERI FOTO
+   =========== */
 
 
-/* ============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================
    TABEL HARGA (halaman Menu)
-   ============================================================ */
-
-/* Style dasar tabel */
+   ========================== */
 .table-wrap {
     padding: 20px;
     border: 1px solid #ccc;
     overflow-x: auto;   /* kalau tabel kelebaran di HP, muncul scroll horizontal, bukan kepotong */
 }
 
-/* Class tambahan buat kasih background putih terang */
 .table-wrap--light {
     background: #ffffff;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;  /* garis antar sel jadi satu garis tipis, bukan dobel */
+    border-collapse: collapse; 
     text-align: left;
     font-size: 14px;
 }
@@ -369,12 +325,7 @@ th, td {
 }
 
 tr:nth-child(even) {
-    /* baris genap (2, 4, 6, dst) dikasih background beda biar gampang dibaca (efek belang) */
     background: #f2f6f8;
-}
-
-tr:hover {
-    background: #cfe8f3;
 }
 
 thead th {
@@ -385,7 +336,6 @@ thead th {
 }
 
 .category {
-    /* style untuk sel kategori yang di-rowspan (Menu Utama, Lauk Tambahan, Minuman) */
     color: #a95738;
     font-weight: bold;
     text-align: center;
@@ -393,17 +343,16 @@ thead th {
 }
 
 .table-note td {
-    /* baris catatan info di bagian bawah tabel, dikasih background beda biar menonjol */
     background: #f1dfae !important;
 }
 
 
-/* ============================================================
+/* ====================================
    MENU + FORM PEMESANAN (halaman Menu)
-   ============================================================ */
+   ==================================== */
 .menu-form-layout {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;  /* tabel lebih lebar dari form, sama seperti wireframe */
+    grid-template-columns: 1.3fr 1fr;
     gap: 30px;
     align-items: start;
     text-align: left;
@@ -446,7 +395,7 @@ thead th {
 .order-form input:focus,
 .order-form select:focus,
 .order-form textarea:focus {
-    /* :focus = aturan ini berlaku CUMA pas input sedang aktif diisi */
+    /* :focus = berlaku HANYA saat input sedang diisi */
     border-color: #a95738;
     outline: none;
 }
@@ -475,51 +424,44 @@ thead th {
 }
 
 
-/* ============================================================
+/* =======================
    ULASAN (halaman Ulasan)
-   ============================================================ */
-.review-section {
-    max-width: 700px;
-    margin: 0 auto;
-    padding-block: 60px;
-    text-align: left;
-}
-
-.review-section textarea {
-    width: 100%;
-    min-height: 180px;
-    padding: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-    margin-bottom: 16px;
-    background: #fffaf0;
-}
-
-.review-section textarea:focus {
-    border-color: #a95738;
-    outline: none;
-}
-
-.review-section button {
-    background: #3d5946;
-    color: #fffaf0;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.review-section button:hover {
-    background: #2d4636;
-}
+   ======================= */
 
 
-/* ============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================================
    FOOTER - bagian paling bawah (kontak, alamat, jam buka)
-   ============================================================ */
+   ======================================================= */
 .site-footer {
     color: #d9e0d4;
     background: #3d5946;
@@ -538,10 +480,9 @@ thead th {
 }
 
 
-/* ============================================================
-   RESPONSIVE - aturan khusus kalau dibuka di layar kecil (HP)
-   Cuma aktif kalau lebar layar 699px ke bawah
-   ============================================================ */
+/* =================================
+   RESPONSIVE - layar 699px ke bawah
+   ================================= */
 @media only screen and (max-width: 699px) {
     .hero {
         grid-template-columns: 1fr;  /* dari 2 kolom jadi 1 kolom (tumpuk ke bawah) */
