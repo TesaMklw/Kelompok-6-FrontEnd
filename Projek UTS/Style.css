@@ -469,6 +469,7 @@ thead th {
     min-height: 70px;
     resize: vertical;
     width: 100%;
+    font-family: DM sans;
 }
 
 .order-form input:focus,
@@ -478,11 +479,13 @@ thead th {
     border-color: #6B2C2C;
     outline: none;
     box-shadow: 0 0 0 3px rgba(107, 44, 44, .10);
+    font-family: DM sans;
 }
 
 .order-form textarea {
     min-height: 90px;
     resize: vertical;
+    font-family: DM sans;
 }
 
 .order-form button {
