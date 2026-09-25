@@ -64,33 +64,45 @@ img, video, iframe {
    HEADER & NAVIGASI (bagian paling atas halaman)
    ============================================== */
 .site-header {
-    position: relative;
+    position: sticky; /* tetap terlihat saat scroll ke bawah */
+    top: 0;
+    z-index: 50;
     border-bottom: 2px solid #d8c9ad;
     background: rgba(255, 250, 240, .96);
+    padding: 0 20px;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
 }
 
 .brand {
     font-size: 26px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding: 10px 0;
+    text-decoration: none;
+    color: inherit;
 }
 
 .brand-mark {
     font-size: 32px;
-    margin-right: 5px;
+    margin-right: 12px;
 }
 
 .site-nav {
-    position: sticky; /* tetap terlihat saat scroll ke bawah */
-    top: 0;
-    z-index: 40;
-    border-top: 1px solid #d8c9ad;
-    border-bottom: 1px solid #d8c9ad;
-    background: #fffaf0;
-    text-align: center;
+    background: transparent;
+    border: none;
 }
 
 .nav-list {
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 12px 0;
     font-size: 13px;
@@ -100,7 +112,6 @@ img, video, iframe {
 
 .nav-list li {
     position: relative;
-    display: inline-block;
 }
 
 .nav-link {
@@ -481,23 +492,58 @@ thead th {
 
 
 /* =======================================================
-   FOOTER - bagian paling bawah (kontak, alamat, jam buka)
+   FOOTER - bagian paling bawah (kontak dan alamat)
    ======================================================= */
+/* Container Utama Footer */
 .site-footer {
-    color: #d9e0d4;
+    width: 100%;
     background: #3d5946;
+    color: #d9e0d4;
 }
 
 .footer-inner {
-    padding-block: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 20px;
 }
 
-.footer-inner a:hover {
+.footer-bottom-row {
+    display: flex;
+    justify-content: space-between; /* Copyright Kiri, Kontak Kanan */
+    align-items: center;            /* Sejajar vertikal di tengah */
+    gap: 20px;
+}
+
+/* SISI KIRI: Copyright */
+.copyright {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* SISI KANAN: Email & Telepon */
+.footer-right {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-right a:hover {
     text-decoration: underline;
 }
 
-.hours {
-    margin-top: 10px;
+.footer-right .divider {
+    color: #d9e0d4;
+    font-size: 12px;
 }
 
 
