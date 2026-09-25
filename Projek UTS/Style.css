@@ -20,10 +20,7 @@ body {
 }
 
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     margin-top: 0;
     color: #3E2723;
     font-family: "Fraunces", Georgia, serif;
@@ -42,9 +39,9 @@ img, video, iframe {
 }
 
 
-/* =======
-   EYEBROW
-   ======= */
+/*  =======
+    EYEBROW
+    ======= */
 .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -64,9 +61,9 @@ img, video, iframe {
 }
 
 
-/* ============
-   LEBAR KONTEN
-   ============ */
+/*  ============
+    LEBAR KONTEN
+    ============ */
 .section-wrap, .header-inner, .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
@@ -77,10 +74,32 @@ img, video, iframe {
     text-align: center;
 }
 
+/* =========================
+   AGAR FOOTER SELALU DI BAWAH
+   ========================= */
 
-/* ==============================================
-   HEADER & NAVIGASI (bagian paling atas halaman)
-   ============================================== */
+html, body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.site-footer {
+    margin-top: auto;
+}
+
+
+/*  ==============================================
+    HEADER & NAVIGASI (bagian paling atas halaman)
+    ============================================== */
 .site-header {
     position: sticky; /* tetap terlihat saat scroll ke bawah */
     top: 0;
@@ -235,9 +254,9 @@ img, video, iframe {
 }
 
 
-/* =======================================
-   TENTANG KAMI + STATISTIK (halaman Home)
-   ======================================= */
+/*  =======================================
+    TENTANG KAMI + STATISTIK (halaman Home)
+    ======================================= */
 .about {
     padding: 34px 0 38px;
 }
@@ -283,9 +302,9 @@ img, video, iframe {
 }
 
 
-/* =====================
-   LOKASI (halaman Home)
-   ===================== */
+/*  =====================
+    LOKASI (halaman Home)
+    ===================== */
 .location {
     padding: 10px 0 42px;
 }
@@ -314,9 +333,9 @@ img, video, iframe {
 }
 
 
-/* ===========
-   GALERI FOTO
-   =========== */
+/*  ===========
+    GALERI FOTO
+    =========== */
 
 
 
@@ -350,9 +369,9 @@ img, video, iframe {
 
 
 
-/* =====================
-   GALERI FOTO
-   ===================== */
+/*  =====================
+    GALERI FOTO
+    ===================== */
 .gallery-layout {
     display: block;
     padding: 34px 0 42px;
@@ -403,9 +422,9 @@ img, video, iframe {
     color: #75675B;
 }
 
-/* ==========================
-   TABEL HARGA (halaman Menu)
-   ========================== */
+/*  ==========================
+    TABEL HARGA (halaman Menu)
+    ========================== */
 .table-wrap {
     padding: 0;
     background: #FFFAF3;
@@ -425,7 +444,7 @@ table {
     text-align: left;
     font-size: 14px;
 }
- 
+
 /* Lebar tiap kolom */
 th:nth-child(1), td:nth-child(1) { 
     width: 16%; 
@@ -465,9 +484,9 @@ thead th {
 }
 
 
-/* ====================================
-   MENU + FORM PEMESANAN (halaman Menu)
-   ==================================== */
+/*  ====================================
+    MENU + FORM PEMESANAN (halaman Menu)
+    ==================================== */
 .menu-form-layout {
     display: grid;
     grid-template-columns: 1.45fr 1fr;
@@ -539,91 +558,79 @@ thead th {
     transform: translateY(-2px);
 }
 
+/* =========================
+   ULASAN
+   ========================= */
 
-/*  =======================
-    ULASAN (halaman Ulasan)
-    ======================= */
-
-
-.review-section {
+.reviews {
     padding: 34px 0 90px;
     min-height: 520px;
+    text-align: center;
 }
 
-.review-section textarea,
-.ulasan textarea,
+.reviews h2 {
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: #75675B;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+
+/* =========================
+   FORM ULASAN
+   ========================= */
+
+.review-form {
+    width: min(600px, 100%);
+    margin: 0 auto;
+}
+
 .review-form textarea {
     display: block;
-    width: min(600px, 100%);
-    min-height: 105px;
-    margin: 70px auto 10px;
-    padding: 10px;
+    width: 100%;
+    min-height: 120px;
+    margin: 0 auto 16px;
+    padding: 12px 14px;
     border: 1px solid #D8C3A5;
-    border-radius: 0;
+    border-radius: 8px;
     background: #FFFAF3;
+    color: #3E2723;
     font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
     resize: vertical;
+    outline: none;
 }
 
-.review-section button,
-.ulasan button,
+.review-form textarea:focus {
+    border-color: #6B2C2C;
+    box-shadow: 0 0 0 3px rgba(107, 44, 44, .10);
+}
+
 .review-form button {
     display: block;
-    width: min(280px, 100%);
-    margin: 0 auto;
-    padding: 10px 18px;
-    border: 0;
-    border-radius: 0;
+    width: 280px;
+    margin: 8px auto 0;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
     background: #6B2C2C;
     color: #F8F1E7;
     font-family: inherit;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     transition: .25s ease;
 }
 
-.review-section button:hover,
-.ulasan button:hover,
 .review-form button:hover {
     background: #8B6B4A;
     transform: translateY(-2px);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  =======================================================
-    FOOTER - bagian paling bawah (kontak dan alamat)
-    ======================================================= */
-/* Container Utama Footer */
 .site-footer {
     width: 100%;
     background: #3E2723;
@@ -638,12 +645,11 @@ thead th {
 
 .footer-bottom-row {
     display: flex;
-    justify-content: space-between; /* Copyright Kiri, Kontak Kanan */
-    align-items: center;            /* Sejajar vertikal di tengah */
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
 }
 
-/* SISI KIRI: Copyright */
 .copyright {
     margin: 0;
     padding: 0;
@@ -651,7 +657,6 @@ thead th {
     opacity: 0.8;
 }
 
-/* SISI KANAN: Email & Telepon */
 .footer-right {
     margin: 0;
     padding: 0;
@@ -674,7 +679,6 @@ thead th {
     color: #d9e0d4;
     font-size: 12px;
 }
-
 
 /*  =================================
     RESPONSIVE - layar 699px ke bawah

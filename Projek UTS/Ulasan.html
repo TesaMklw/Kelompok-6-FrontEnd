@@ -1,33 +1,157 @@
-<!--=======================
-    ULASAN
-    ======================= -->
-<section class="reviews" id="ulasan">
-    <div class="section-wrap">
+<!DOCTYPE html>
+<html lang="id">
 
-        <p class="eyebrow">
-            <span></span>
-            Ulasan
-            <span></span>
-        </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <h2>ULASAN</h2>
+    <title>Ulasan - Warung Wong Deso</title>
 
-        <p class="section-description">
-            Bagikan pengalaman kamu setelah menikmati produk kami.
-        </p>
+    <link rel="stylesheet" href="Style.css">
+</head>
 
-        <form class="review-form">
-            <textarea
-                name="ulasan"
-                id="ulasan"
-                placeholder="Tulis ulasan kamu..."
-                required
-            ></textarea>
+<body>
 
-            <button type="submit" class="button">
-                KIRIM ULASAN
-            </button>
-        </form>
+    <!-- =======================
+         HEADER
+         ======================= -->
+    <header class="site-header" id="beranda">
+        <div class="header-inner">
 
-    </div>
-</section>
+            <a class="brand" href="home.html"
+               aria-label="Warung Wong Deso, kembali ke beranda">
+
+                <span class="brand-mark">WD</span>
+
+                <span>
+                    <strong>Warung Wong</strong>
+                    <small> DESO</small>
+                </span>
+
+            </a>
+
+            <nav class="site-nav" aria-label="Navigasi utama">
+                <div class="nav-inner">
+
+                    <ul class="nav-list">
+
+                        <li>
+                            <a class="nav-link" href="home.html">
+                                Home &#9662;
+                            </a>
+
+                            <ul class="submenu">
+                                <li>
+                                    <a href="home.html#tentang">
+                                        Tentang Kami
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="home.html#kontak">
+                                        Kontak
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="home.html#lokasi">
+                                        Lokasi
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="galeri.html">
+                                Galeri
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="menu.html">
+                                Menu
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link active" href="ulasan.html">
+                                Ulasan
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =======================
+         ULASAN
+         ======================= -->
+    <main>
+
+        <section class="reviews" id="ulasan">
+
+            <div class="section-wrap">
+
+                <p class="eyebrow">
+                    <span></span>
+                    Ulasan
+                    <span></span>
+                </p>
+
+                <h2>ULASAN</h2>
+
+                <p class="section-description">
+                    Bagikan pengalaman kamu setelah menikmati produk kami.
+                </p>
+
+                <form class="review-form">
+
+                    <textarea
+                        name="ulasan"
+                        id="isi-ulasan"
+                        placeholder="Tulis ulasan kamu..."
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="button">
+                        KIRIM ULASAN
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =======================
+         FOOTER
+         ======================= -->
+    <footer class="site-footer" id="kontak">
+        <div class="footer-inner">
+
+            <!-- WADAH BARIS BAWAH (ISI HARUS DI DALAM SINI) -->
+            <div class="footer-bottom-row">
+                <!-- Sisi Kiri -->
+                <p class="copyright">© 2026 Warung Wong Deso</p>
+
+                <!-- Sisi Kanan -->
+                <div class="footer-right">
+                    <a href="mailto:manganlur@gmail.com">manganlur@gmail.com</a>
+                    <span class="divider">|</span>
+                    <a href="tel:+6282122517112">+6282122517112</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
