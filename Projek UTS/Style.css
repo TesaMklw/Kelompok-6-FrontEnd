@@ -250,7 +250,6 @@ main {
 
 .button:hover {
     background-color: #8B6B4A;
-    transform: translateY(-2px);
 }
 
 .image-stamp {
@@ -528,12 +527,10 @@ thead th {
     border-radius: 0;
     font-weight: bold;
     cursor: pointer;
-    transition: .25s ease;
 }
 
 .order-form button:hover {
     background: #8B6B4A;
-    transform: translateY(-2px);
 }
 
 /* =========================
@@ -603,7 +600,6 @@ thead th {
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
-    transition: .25s ease;
 }
 
 .review-form button:hover {
