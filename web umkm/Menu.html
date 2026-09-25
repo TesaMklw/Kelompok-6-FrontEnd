@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <!-- Metadata halaman menu dan koneksi ke CSS eksternal. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daftar menu dan form pemesanan Warung Wong Deso.">
+    <title>Warung Wong Deso | Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header dan navigasi halaman. -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html"><img src="gambar/Logo (2).png" alt="Logo Warung Wong Deso"><span>Warung Wong <strong>Deso</strong></span></a>
+            <nav class="site-nav" aria-label="Navigasi utama">
+                <a href="index.html">Home</a><a href="Galeri.html">Galeri</a><a class="active" href="Menu.html">Menu</a><a href="Ulasan.html">Ulasan</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-width">
+        <!-- Judul halaman menu. -->
+        <section class="page-heading">
+            <p class="eyebrow">Enak, murah, mengenyangkan</p>
+            <h1>Daftar <em>Menu</em></h1>
+            <p>Pilih hidangan favoritmu, lalu kirim detail pesanan kepada kami.</p>
+        </section>
+
+        <section class="menu-layout">
+            <!-- Tabel menampilkan kategori, keterangan, dan harga. -->
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr><th>Kategori</th><th>Menu</th><th>Keterangan</th><th>Harga</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th class="category" rowspan="8">Menu<br>Utama</th><td>Nila Goreng / Bakar</td><td>Sambal dan lalapan</td><td class="price">Rp 25.000</td></tr>
+                        <tr><td>Nasi Ayam Kremes</td><td>Nasi, ayam, kremes, sambal</td><td class="price">Rp 22.000</td></tr>
+                        <tr><td>Nasi Ayam Bakar</td><td>Nasi, ayam bakar, sambal</td><td class="price">Rp 22.000</td></tr>
+                        <tr><td>Nasi Lele Bakar</td><td>Nasi, lele, sambal, lalapan</td><td class="price">Rp 18.000</td></tr>
+                        <tr><td>Nasi Bebek Goreng / Bakar</td><td>Nasi dan bebek pilihan</td><td class="price">Rp 35.000</td></tr>
+                        <tr><td>Nasi Goreng Spesial</td><td>Nasi goreng dengan topping lengkap</td><td class="price">Rp 25.000</td></tr>
+                        <tr><td>Soto Ayam</td><td>Kuah bening, ayam suwir, nasi</td><td class="price">Rp 15.000</td></tr>
+                        <tr><td>Capcay</td><td>Aneka sayur, ayam, bakso</td><td class="price">Rp 15.000</td></tr>
+                        <tr><th class="category" rowspan="3">Lauk<br>Tambahan</th><td>Tempe / Tahu</td><td>Disajikan hangat</td><td class="price">Rp 2.000</td></tr>
+                        <tr><td>Sate Kulit Ayam</td><td>Satu tusuk</td><td class="price">Rp 3.000</td></tr>
+                        <tr><td>Nasi Putih / Uduk</td><td>Porsi nasi</td><td class="price">Rp 5.000</td></tr>
+                        <tr><th class="category" rowspan="3">Minuman</th><td>Teh Manis</td><td>Hangat atau es</td><td class="price">Rp 5.000</td></tr>
+                        <tr><td>Kopi Hangat</td><td>Kopi hitam</td><td class="price">Rp 5.000</td></tr>
+                        <tr><td>Jeruk</td><td>Hangat atau es</td><td class="price">Rp 5.000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Form mengumpulkan data pelanggan dan detail pesanan. -->
+            <aside class="form-card">
+                <h2>Form Pemesanan</h2>
+                <form action="#" method="post">
+                    <label for="nama">Nama</label>
+                    <input id="nama" name="nama" type="text" placeholder="Masukkan nama" required>
+                    <label for="whatsapp">Nomor WhatsApp</label>
+                    <input id="whatsapp" name="whatsapp" type="tel" placeholder="08xxxxxxxxxx" required>
+                    <label for="menu">Pilihan Menu</label>
+                    <select id="menu" name="menu" required>
+                        <option value="">Pilih menu</option>
+                        <option>Nasi Ayam Bakar - Rp 22.000</option>
+                        <option>Nasi Goreng Spesial - Rp 25.000</option>
+                        <option>Soto Ayam - Rp 15.000</option>
+                        <option>Teh Manis - Rp 5.000</option>
+                    </select>
+                    <label for="jumlah">Jumlah</label>
+                    <input id="jumlah" name="jumlah" type="number" min="1" value="1" required>
+                    <label for="catatan">Catatan</label>
+                    <textarea id="catatan" name="catatan" placeholder="Tambahkan catatan pesanan..."></textarea>
+                    <button type="submit">Kirim Pesanan</button>
+                </form>
+            </aside>
+        </section>
+    </main>
+
+    <!-- Footer berisi identitas dan kontak warung. -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a class="brand footer-brand" href="index.html"><img src="gambar/Logo (2).png" alt="Logo Warung Wong Deso"><span>Warung Wong <strong>Deso</strong></span></a>
+            <div class="footer-contact"><span>Kontak</span><a href="mailto:manganlur@gmail.com">manganlur@gmail.com</a><a href="tel:+6282122517112">0821-1105-3644</a></div>
+            <small>© 2026 Warung Wong Deso</small>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -303,98 +303,217 @@ img, video, iframe {
 
 
 /* ==========================
+   GLOBAL RESET / VARIABLES
+   ========================== */
+:root{
+    --bg-page: #fffaf0;
+    --accent: #3d5946;
+    --accent-dark: #2d4636;
+    --muted: #d8c9ad;
+    --border: #ccc;
+    --highlight: #a95738;
+    --note-bg: #f1dfae;
+    --table-row: #f2f6f8;
+    --text: #222;
+    --radius: 6px;
+    --gap: 30px;
+    --container-padding: 28px;
+}
+
+/* ==========================
+   PAGE LAYOUT
+   ========================== */
+.page-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    box-sizing: border-box;
+}
+
+/* Header navigation matching wireframe */
+.site-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.site-nav{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.site-nav a{
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+.site-nav a.active{
+    background: var(--accent);
+    color: #fffaf0;
+}
+
+/* ==========================
    TABEL HARGA (halaman Menu)
    ========================== */
 .table-wrap {
-    padding: 20px;
-    border: 1px solid #ccc;
-    overflow-x: auto;   /* kalau tabel kelebaran di HP, muncul scroll horizontal, bukan kepotong */
+    padding: 18px;
+    border: 1px solid var(--border);
+    overflow-x: auto;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
+/* optional light variant */
 .table-wrap--light {
-    background: #ffffff;
+    background: var(--bg-page);
 }
 
+/* table base */
 table {
     width: 100%;
-    table-layout: fixed; /* lebar kolom mengikuti nilai width di bawah */
-    border-collapse: collapse; /* garis antar sel jadi satu garis tipis, bukan dobel */
+    table-layout: fixed;
+    border-collapse: collapse;
     text-align: left;
-    font-size: 14px;
+    font-size: 15px; /* sedikit lebih besar sesuai wireframe */
+    min-width: 720px; /* agar kolom tidak terlalu sempit di desktop */
 }
- 
-/* Lebar tiap kolom */
+
+/* Lebar tiap kolom disesuaikan agar kolom menu dominan */
 th:nth-child(1), td:nth-child(1) { 
-    width: 16%; 
+    width: 12%;
 }
 
 th:nth-child(2), td:nth-child(2) { 
-    width: 28%; 
+    width: 30%;
 }
 
 th:nth-child(3), td:nth-child(3) { 
-    width: 40%; 
+    width: 38%;
 }
 
 th:nth-child(4), td:nth-child(4) { 
-    width: 16%; 
-} 
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
+    width: 20%;
 }
 
+th, td {
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+    vertical-align: middle;
+}
+
+/* row striping and header */
 tr:nth-child(even) {
-    background: #f2f6f8;
+    background: var(--table-row);
 }
 
 thead th {
-    background: #3d5946;
+    background: var(--accent);
     color: #fffaf0;
     text-align: center;
-    font-weight: bold;
+    font-weight: 700;
+    padding: 14px 12px;
+    font-size: 15px;
 }
 
+/* category cell style */
 .category {
-    color: #a95738;
-    font-weight: bold;
+    color: var(--highlight);
+    font-weight: 700;
     text-align: center;
     vertical-align: middle;
 }
 
+/* note row */
 .table-note td {
-    background: #f1dfae !important;
+    background: var(--note-bg) !important;
+    font-weight: 600;
 }
 
+/* small screens: make table scrollable and reduce padding */
+@media (max-width: 640px){
+    table { font-size: 13px; min-width: 640px; }
+    th, td { padding: 10px; }
+}
 
-/* ====================================
-   MENU + FORM PEMESANAN (halaman Menu)
-   ==================================== */
+/* ==========================
+   MENU + FORM PEMESANAN
+   ========================== */
 .menu-form-layout {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 30px;
-    align-items: start;
-    text-align: left;
-    padding-block: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* dua kolom sama lebar */
+  gap: var(--gap, 30px);
+  align-items: stretch; /* buat kolom stretch agar tinggi seimbang */
+  text-align: left;
+  padding-block: 40px;
+
 }
 
-.menu-form-layout h2 {
-    margin-top: 0;
+/* Section titles */
+.menu-section, .form-section {
+    display: block;
 }
 
+.menu-section h2, .form-section h2 {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Left column: tabel area wrapper */
+.menu-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-section {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Add a visible card header for the table to match wireframe */
+.table-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* Right column: order form */
 .order-form {
-    background: #fffaf0;
-    border: 1px solid #d8c9ad;
-    padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border, #e6e6e6);
+  background: var(--bg-card, #fff);
 }
 
+/* form labels and inputs */
 .order-form label {
     display: block;
-    font-weight: bold;
-    margin-top: 14px;
+    font-weight: 700;
+    margin-top: 12px;
     margin-bottom: 6px;
+    font-size: 13px;
+    color: #333;
 }
 
 .order-form label:first-child {
@@ -405,78 +524,157 @@ thead th {
 .order-form select,
 .order-form textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 4px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
     font-family: inherit;
     background: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
 .order-form input:focus,
 .order-form select:focus,
 .order-form textarea:focus {
-    /* :focus = berlaku HANYA saat input sedang diisi */
-    border-color: #a95738;
+    border-color: var(--highlight);
     outline: none;
+    box-shadow: 0 0 0 3px rgba(169,87,56,0.06);
 }
 
 .order-form textarea {
-    min-height: 90px;
+    min-height: 110px;
     resize: vertical;
 }
 
+/* jumlah field and small controls */
+.form-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-row .small {
+    flex: 0 0 120px;
+}
+
+/* submit button */
 .order-form button {
     display: block;
     width: 100%;
     margin-top: 16px;
-    background: #3d5946;
+    background: var(--accent);
     color: #fffaf0;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 4px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.18s ease;
+    letter-spacing: 0.6px;
 }
 
 .order-form button:hover {
-    background: #2d4636;
+    background: var(--accent-dark);
 }
+
+/* helper small text under inputs */
+.order-form .hint {
+    font-size: 12px;
+    color: #666;
+    margin-top: 6px;
+}
+
+.table-wrap {
+  padding: 0; /* padding sudah di .table-card */
+  overflow-x: auto;
+  min-width: 0; /* penting agar grid bisa mengecil */
+}
+
+/* buat tabel responsif: jangan paksa min-width besar */
+table {
+  width: 100%;
+  table-layout: auto; /* kolom menyesuaikan isi, mencegah overflow paksa */
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 0;
+}
+
+/* sel bisa membungkus teks */
+th, td {
+  white-space: normal;
+  word-break: break-word;
+  padding: 12px 14px;
+}
+
+/* jika ingin tinggi form dan tabel benar-benar sama di desktop,
+   beri batas minimum tinggi pada card (opsional, sesuaikan nilai) */
+@media (min-width: 900px) {
+  .table-card, .order-form {
+    min-height: 420px;
+  }
+}
+
+/* tetap responsif: pada layar sempit, stack form di bawah tabel */
+@media (max-width: 980px) {
+  .menu-form-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .order-form { order: 2; }
+  .menu-left { order: 1; }
+  table { font-size: 14px; }
+}
+
+/* ==========================
+   FOOTER matching wireframe
+   ========================== */
+.site-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+
+.footer-links{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.footer-links a{
+    color: var(--text);
+    text-decoration: none;
+}
+
+/* ==========================
+   RESPONSIVE ADJUSTMENTS
+   ========================== */
+@media (max-width: 980px){
+    .page-container{ padding: 18px; }
+    .menu-form-layout{ grid-template-columns: 1fr; gap: 20px; }
+    .order-form{ order: 2; } /* form goes below table on mobile */
+    .menu-left{ order: 1; }
+    .site-nav{ gap: 14px; font-size: 14px; }
+}
+
+/* very small screens: compact spacing */
+@media (max-width: 420px){
+    :root{ --gap: 18px; }
+    .order-form input, .order-form select, .order-form textarea { padding: 9px; font-size: 13px; }
+    .order-form button { padding: 12px; font-size: 14px; }
+}
+
 
 
 /* =======================
    ULASAN (halaman Ulasan)
    ======================= */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -486,6 +684,14 @@ thead th {
 .site-footer {
     color: #d9e0d4;
     background: #3d5946;
+    display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 28px;
+  border-top:1px solid #eee;
+  border-radius:8px;
+  flex-wrap:wrap;
 }
 
 .footer-inner {
@@ -498,6 +704,45 @@ thead th {
 
 .hours {
     margin-top: 10px;
+}
+
+/* kiri: logo */
+.footer-left { display:flex; align-items:center; gap:12px; flex:0 0 auto; }
+#logo-wd { width:140px; height:auto; display:block; }
+
+/* kanan: kontak disusun horizontal */
+.footer-right{
+  display:flex;
+  gap:28px; /* jarak antar item horizontal */
+  align-items:center;
+  flex:1 1 auto;
+  justify-content:flex-end;
+  min-width:220px;
+}
+
+/* tiap item kontak */
+.footer-contact-item{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  align-items:flex-start;
+  white-space:nowrap; /* mencegah pemotongan baris di tengah link */
+}
+
+/* label kecil di atas link */
+.footer-contact-item .label{
+  font-size:12px;
+  color:#666;
+  font-weight:700;
+  letter-spacing:0.2px;
+}
+
+/* link kontak */
+.contact-link{
+  color:#3d5946;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
 }
 
 
