@@ -38,7 +38,6 @@ img, video, iframe {
     max-width: 100%;   /* gambar/video/peta tidak akan melebihi lebar container */
 }
 
-
 /*  =======
     EYEBROW
     ======= */
@@ -59,7 +58,6 @@ img, video, iframe {
     height: 2px;
     background-color: #6B2C2C;
 }
-
 
 /*  ============
     LEBAR KONTEN
@@ -95,7 +93,6 @@ main {
 .site-footer {
     margin-top: auto;
 }
-
 
 /*  ==============================================
     HEADER & NAVIGASI (bagian paling atas halaman)
@@ -332,94 +329,42 @@ main {
     color: #75675b;
 }
 
-
 /*  ===========
     GALERI FOTO
     =========== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*  =====================
-    GALERI FOTO
-    ===================== */
 .gallery-layout {
     display: block;
-    padding: 34px 0 42px;
-}
-
-.gallery-layout > h1,
-.gallery-layout > h2,
-.gallery-layout > .section-title {
-    text-align: center;
-    margin-bottom: 18px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr 1fr 1fr;  /* 3 kolom foto sama lebar */
+    gap: 100px;
 }
 
-.gallery-grid > * {
-    min-width: 0;
+.gallery-grid figure {
+    margin: 0; 
+    padding: 10px; 
+    border: 1px solid #e1d7c4; 
+    background: #fffdf8;
+    text-align: center;
 }
 
-.gallery-card,
-.gallery-item {
-    background: #FFFAF3;
-    border: 1px solid #D8C3A5;
-    padding: 6px;
-    min-width: 0;
+.gallery-grid img {
+    width: 100%; 
+    height: 150px;
+    object-fit: cover;   /* WAJIB ada ini biar foto beda ukuran/rasio tetap rapi, nggak gepeng */
 }
 
-.gallery-card img,
-.gallery-item img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
-
-.gallery-card h3,
-.gallery-item h3 {
-    margin: 7px 4px 2px;
-    font-size: 13px;
-}
-
-.gallery-card p,
-.gallery-item p {
-    margin: 0 4px 6px;
-    font-size: 11px;
-    color: #75675B;
+.gallery-grid figcaption {
+    padding-top: 10px; 
+    text-align: center;
+    font-weight: bold; 
+    color: #3d5946;
 }
 
 /*  ==========================
