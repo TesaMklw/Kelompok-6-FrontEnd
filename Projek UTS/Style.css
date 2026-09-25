@@ -389,8 +389,23 @@ main {
     overflow-x: auto;
 }
 
+.table-scroll {
+    max-height: 540px;   /* tinggi yang mau kelihatan */
+    overflow-y: auto;    /* munculin scrollbar kalau isi lebih panjang */
+    overflow-x: auto;    /* jaga-jaga kalau tabel juga lebar ke samping */
+    border-radius: 8px;  /* opsional, biar konsisten sama style card kamu */
+}
+
+.table-scroll thead th {
+    position: sticky;
+    top: 0;
+    background: #6B2C2C; /* ganti sesuai warna background yang kamu pakai, biar teks di bawahnya nggak numpuk kelihatan */
+    z-index: 1;
+}
+
 .table-wrap--light {
     background: #ffffff;
+    color: #3E2723;
 }
 
 table {
@@ -438,7 +453,6 @@ thead th {
 .table-note td {
     background: #f1dfae !important;
 }
-
 
 /*  ====================================
     MENU + FORM PEMESANAN (halaman Menu)
