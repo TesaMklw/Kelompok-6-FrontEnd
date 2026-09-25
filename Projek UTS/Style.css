@@ -468,6 +468,7 @@ thead th {
 .order-form textarea {
     min-height: 70px;
     resize: vertical;
+    width: 100%;
 }
 
 .order-form input:focus,
@@ -581,6 +582,10 @@ thead th {
     background: #3E2723;
     color: #F8F1E7;
 }
+
+/* =========================
+   FOOTER
+   ========================= */
 
 .footer-inner {
     max-width: 1200px;
