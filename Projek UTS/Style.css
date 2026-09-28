@@ -3,6 +3,17 @@
 :root {
     --font-body: "DM Sans";
     --font-heading: "Fraunces";
+
+    /* PALET WARNA */
+    --color-cream: #F8F1E7;
+    --color-maroon: #6B2C2C;
+    --color-ivory: #FFFAF0;
+    --color-sand: #D8C3A5;
+    --color-brown: #8B6B4A;
+    --color-dark: #3E2723;
+    --color-muted: #75675B;
+    --color-soft: #EEE4D1;
+    --color-line: #E1D5C4;
 }
 
 /*  ===========
@@ -163,7 +174,7 @@ main {
 .nav-link {
     display: inline-block;
     padding: 3px 15px;
-    color: #75675b;
+    color: #75675B;
     text-decoration: none;
 }
 
@@ -179,7 +190,7 @@ main {
     top: 100%;
     left: 0;
     min-width: 180px;
-    background: #FFFAF3;
+    background: #FFFAF0;
     border: 1px solid #D8C3A5;
     border-radius: 12px;
     text-align: left;
@@ -201,11 +212,11 @@ main {
     display: block;
     padding: 9px 16px;
     font-weight: normal;
-    color: #75675b;
+    color: #75675B;
 }
 
 .submenu a:hover {
-    background: #eee4d1;
+    background: #EEE4D1;
     color: #6B2C2C;
 }
 
@@ -279,7 +290,7 @@ main {
 }
 
 .stat-box {
-    background: #FFFAF3;
+    background: #FFFAF0;
     border: 1px solid #D8C3A5;
     border-radius: 0;
     padding: 18px 12px;
@@ -301,7 +312,7 @@ main {
 
 .stat-label {
     margin-top: 4px;
-    color: #75675b;
+    color: #75675B;
     font-size: 14px;
 }
 
@@ -317,7 +328,7 @@ main {
     max-width: 900px;
     margin: 0 auto;
     text-align: left;
-    background: #FFFAF3;
+    background: #FFFAF0;
     border: 1px solid #D8C3A5;
     border-radius: 0;
     padding: 14px;
@@ -333,7 +344,7 @@ main {
 
 .location-address {
     margin-top: 14px;
-    color: #75675b;
+    color: #75675B;
 }
 
 /*  ===========
@@ -382,7 +393,7 @@ main {
     ========================== */
 .table-wrap {
     padding: 0;
-    background: #FFFAF3;
+    background: #FFFAF0;
     border: 1px solid #D8C3A5;
     border-radius: 0;
     overflow-x: auto;
@@ -403,7 +414,7 @@ main {
 }
 
 .table-wrap--light {
-    background: #ffffff;
+    background: #FFFAF0;
     color: #3E2723;
 }
 
@@ -412,6 +423,7 @@ table {
     table-layout: fixed; /* lebar kolom mengikuti nilai width di bawah */
     border-collapse: collapse; /* garis antar sel jadi satu garis tipis, bukan dobel */
     text-align: left;
+    font-family: inherit;
     font-size: 14px;
 }
 
@@ -450,7 +462,8 @@ thead th {
 
 
 .table-note td {
-    background: #f1dfae !important;
+    background: #6B2C2C !important;
+    color: #F8F1E7;
 }
 
 /*  ====================================
@@ -470,7 +483,7 @@ thead th {
 }
 
 .order-form {
-    background: #FFFAF3;
+    background: #FFFAF0;
     border: 1px solid #D8C3A5;
     border-radius: 0;
     padding: 12px;
@@ -573,7 +586,7 @@ thead th {
     padding: 12px 14px;
     border: 1px solid #D8C3A5;
     border-radius: 8px;
-    background: #FFFAF3;
+    background: #FFFAF0;
     color: #3E2723;
     font-family: inherit;
     font-size: 14px;
@@ -655,7 +668,7 @@ thead th {
 }
 
 .footer-right .divider {
-    color: #d9e0d4;
+    color: #D8C3A5;
     font-size: 12px;
 }
 
