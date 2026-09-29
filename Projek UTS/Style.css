@@ -312,7 +312,6 @@ main {
 .location {
     padding: 10px 0 42px;
 }
-
 .location-wrap {
     max-width: 900px;
     margin: 0 auto;
@@ -334,6 +333,72 @@ main {
 .location-address {
     margin-top: 14px;
     color: #75675B;
+}
+
+/*  =====================
+    ABOUT US PAGE + KONTAK
+    ===================== */
+.page-intro {
+    padding: 34px 0 6px;
+}
+
+.page-intro h1 {
+    margin: 8px 0;
+    font-size: 40px;
+}
+
+.contact {
+    padding: 10px 0 48px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 22px auto 0;
+    max-width: 900px;
+    text-align: left;
+}
+
+.contact-card {
+    background: #FFFAF0;
+    border: 1px solid #D8C3A5;
+    border-radius: 0;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(62, 39, 35, .08);
+}
+
+.contact-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #6B2C2C;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3E2723;
+    word-break: break-word;
+}
+
+.contact-text {
+    margin: 0;
+    font-weight: 400;
+    color: #75675B;
+}
+
+.contact-button {
+    margin-top: auto;
+    text-align: center;
 }
 
 /*  ===========
@@ -662,59 +727,129 @@ thead th {
 }
 
 /*  =================================
-    RESPONSIVE - layar 699px ke bawah
+    RESPONSIVE - tablet 900px ke bawah
     ================================= */
-@media only screen and (max-width: 699px) {
-    .hero {
-        grid-template-columns: 1fr;  /* dari 2 kolom jadi 1 kolom (tumpuk ke bawah) */
-    }
-    .gallery-layout {
-        grid-template-columns: 1fr;  /* sidebar & galeri jadi tumpuk, bukan sejajar */
+@media only screen and (max-width: 900px) {
+    .menu-form-layout {
+        grid-template-columns: 1fr; /* tabel & form ditumpuk ke bawah */
+        gap: 24px;
     }
     .gallery-grid {
-        grid-template-columns: 1fr 1fr;  /* dari 3 kolom foto jadi 2 kolom aja (biar nggak kekecilan) */
-    }
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    .menu-form-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
+/*  =================================
+    RESPONSIVE - HP 699px ke bawah
+    ================================= */
 @media only screen and (max-width: 699px) {
-    .header-inner {
-        height: auto;
-        min-height: 70px;
-        gap: 12px;
+    /* ---- Header ditumpuk vertikal (logo di atas, nav di bawah) ---- */
+    .site-header {
+        padding: 0;
     }
-
+    .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        height: auto;
+        min-height: 0;
+        gap: 0;
+        padding: 10px 16px;
+    }
+    .brand {
+        justify-content: center;
+        font-size: 24px;
+        padding: 6px 0;
+    }
+    .brand-mark {
+        font-size: 26px;
+    }
+    .site-nav {
+        width: 100%;
+    }
     .nav-list {
         flex-wrap: wrap;
-        justify-content: flex-end;
-        padding: 8px 0;
+        justify-content: center;
+        gap: 2px 4px;
+        padding: 6px 0 8px;
     }
-    
     .nav-link {
-        padding: 4px 8px;
+        padding: 6px 10px;
+    }
+    /* submenu milik item terakhir dibuka ke kiri supaya tidak kepotong layar */
+    .nav-list > li:last-child .submenu {
+        left: auto;
+        right: 0;
     }
 
+    /* ---- Hero jadi 1 kolom ---- */
     .hero {
+        grid-template-columns: 1fr;
         gap: 28px;
-        padding-top: 42px;
-        padding-bottom: 50px;
+        padding-top: 32px;
+        padding-bottom: 36px;
     }
 
+    /* ---- Judul halaman mengecil di HP ---- */
+    .page-intro h1 {
+        font-size: 30px;
+    }
+
+    /* ---- Semua grid 3 kolom jadi 1 kolom ---- */
+    .stats-grid,
+    .contact-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
     .stats-grid {
         gap: 10px;
     }
-
+    .gallery-layout {
+        padding: 0 16px;
+    }
     .gallery-grid {
-        gap: 10px;
+        gap: 12px;
+    }
+    .gallery-grid img {
+        height: 220px; /* foto pengunjung tampil lebih besar di HP */
     }
 
+    /* ---- Tabel menu digeser ke samping, bukan digepeng ---- */
+    table {
+        min-width: 560px; /* memaksa scroll horizontal di dalam .table-wrap */
+        font-size: 13px;
+    }
+    th, td {
+        padding: 8px;
+    }
     .menu-form-layout {
-        gap: 24px;
         padding-block: 32px;
+    }
+
+    /* ---- Input 16px supaya iOS tidak auto-zoom saat diketik ---- */
+    .order-form input,
+    .order-form select,
+    .order-form textarea,
+    .review-form textarea {
+        font-size: 16px;
+    }
+    .review-form button {
+        width: min(280px, 100%);
+    }
+
+    /* ---- Footer ditumpuk ke bawah ---- */
+    .footer-bottom-row {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    .footer-right {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* ---- Peta lebih pendek di HP ---- */
+    .location-wrap iframe {
+        height: 240px;
     }
 }
