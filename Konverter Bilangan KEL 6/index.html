@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konverter Bilangan Biner, Desimal, Heksadesimal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Konverter Bilangan</h1>
+        <p class="subjudul">Biner (basis 2), Desimal (basis 10), dan Heksadesimal (basis 16)</p>
+
+        <!-- INPUT + EVENT: form dengan ID 'form-konversi' -->
+        <form id="form-konversi">
+            <div class="baris">
+                <label for="basis-asal">Basis bilangan asal:</label>
+                <select id="basis-asal">
+                    <option value="2">Biner (basis 2)</option>
+                    <option value="10" selected>Desimal (basis 10)</option>
+                    <option value="16">Heksadesimal (basis 16)</option>
+                </select>
+            </div>
+
+            <div class="baris">
+                <label for="angka">Masukkan angka:</label>
+                <input type="text" id="angka" placeholder="Contoh: 255" autocomplete="off">
+            </div>
+
+            <!-- Tempat pratinjau real-time (event input) -->
+            <p class="pratinjau">Pratinjau: <strong id="preview">-</strong></p>
+
+            <!-- Tempat pesan kesalahan -->
+            <p id="pesan" class="pesan"></p>
+
+            <button type="submit" id="btn-konversi">Konversi</button>
+            <button type="button" id="btn-reset">Reset</button>
+        </form>
+
+        <!-- PERUBAHAN DOM: hasil ditampilkan di sini -->
+        <h2>Hasil Konversi</h2>
+        <ul id="hasil" class="daftar-hasil">
+            <li class="kosong">Belum ada hasil. Isi angka lalu tekan Konversi.</li>
+        </ul>
+
+        <h2>Langkah Perhitungan</h2>
+        <ul id="langkah" class="daftar-langkah">
+            <li class="kosong">Langkah perhitungan akan muncul di sini.</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
