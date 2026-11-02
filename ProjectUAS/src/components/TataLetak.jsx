@@ -4,26 +4,27 @@ import Kaki from "./Kaki";
 import Navigasi from "./Navigasi";
 
 export default function TataLetak() {
-  const { pathname, hash } = useLocation();
+	const { pathname, hash } = useLocation();
 
-  useEffect(() => {
-    if (hash) {
-      const bagian = document.querySelector(hash);
-      if (bagian) {
-        bagian.scrollIntoView({ behavior: "smooth", block: "start" });
-        return;
-      }
-    }
-    window.scrollTo(0, 0);
-  }, [pathname, hash]);
+	useEffect(() => {
+		if (hash) {
+			const bagian = document.querySelector(hash);
+			if (bagian) {
+				bagian.scrollIntoView({ behavior: "smooth", block: "start" });
+				return;
+			}
+		}
+		window.scrollTo(0, 0);
+	}, [pathname, hash]);
 
-  return (
-    <>
-      <Navigasi />
-      <main className="isi-halaman">
-        <Outlet />
-      </main>
-      <Kaki />
-    </>
-  );
+	return (
+		<>
+			<Navigasi />
+			<main className="isi-halaman">
+				<Outlet />
+			</main>
+			<Kaki />
+		</>
+	);
 }
+

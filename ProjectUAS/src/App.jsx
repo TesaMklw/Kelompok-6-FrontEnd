@@ -7,17 +7,17 @@ import Ulasan from "./halaman/Ulasan";
 import Tentang from "./halaman/Tentang";
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<TataLetak />}>
-          <Route index element={<Beranda />} />
-          <Route path="galeri" element={<Galeri />} />
-          <Route path="menu" element={<Menu />} />
-          <Route path="ulasan" element={<Ulasan />} />
-          <Route path="tentang" element={<Tentang />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route element={<TataLetak />}>
+					<Route index element={<Beranda />} />
+					<Route path="galeri" element={<Galeri />} />
+					<Route path="menu" element={<Menu />} />
+					<Route path="ulasan" element={<Ulasan />} />
+					<Route path="tentang" element={<Tentang />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }

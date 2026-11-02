@@ -2,52 +2,57 @@ import { useEffect, useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 
 export default function Ulasan() {
-    const [ulasan, setUlasan] = useState("");
-    const [terkirim, setTerkirim] = useState(false);
+	const [isi, setIsi] = useState("");
+	const [terkirim, setTerkirim] = useState(false);
 
-    useEffect(() => {
-        document.title = "Warung Wong Deso - Ulasan";
-    }, []);
+	useEffect(() => {
+		document.title = "Warung Wong Deso - Ulasan";
+	}, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Ulasan terkirim:", ulasan);
-        setUlasan("");
-        setTerkirim(true);
-    };
+	function kirim(event) {
+		event.preventDefault();
+		setTerkirim(true);
+		setIsi("");
+	}
 
-    return (
-        <Container className="halaman-ulasan py-4 text-center">
-            <section className="bagian-halaman" id="ulasan">
-                <h2 className="judul-bagian text-uppercase">Ulasan</h2>
-                <p className="teks-pendukung mx-auto mb-4">
-                    Bagikan pengalaman kamu setelah menikmati produk kami.
-                </p>
-
-                <Form className="kotak-sempit mx-auto" onSubmit={handleSubmit}>
-                    {terkirim && (
-                        <Alert variant="success" dismissible onClose={() => setTerkirim(false)}>
-                            Terima kasih, ulasanmu sudah terkirim!
-                        </Alert>
-                    )}
-                    <Form.Control
-                        as="textarea"
-                        rows={5}
-                        placeholder="Tulis ulasan kamu..."
-                        value={ulasan}
-                        onChange={(e) => setUlasan(e.target.value)}
-                        required
-                    />
-                    <Button
-                        type="submit"
-                        variant="primary"
-                        className="mt-3 text-uppercase"
-                        style={{ minWidth: 280 }}
-                    >
-                        Kirim Ulasan
-                    </Button>
-                </Form>
-            </section>
-        </Container>
-    );
+	return (
+		<Container className="halaman-ulasan py-4 py-lg-5">
+			<h1 className="judul-halaman text-center">Ulasan</h1>
+			<p className="teks-pendukung text-center mx-auto">
+				Bagikan pengalaman kamu setelah menikmati masakan kami.
+			</p>
+			{terkirim && (
+				<Alert
+					variant="success"
+					className="mx-auto kotak-sempit"
+					onClose={() => setTerkirim(false)}
+					dismissible
+				>
+					Ulasan kamu sudah terkirim. Terima kasih sudah mampir.
+				</Alert>
+			)}
+			<Form className="mx-auto kotak-sempit" onSubmit={kirim}>
+				<Form.Group className="mb-3" controlId="isi-ulasan">
+					<Form.Label className="visually-hidden">Isi ulasan</Form.Label>
+					<Form.Control
+						as="textarea"
+						rows={5}
+						value={isi}
+						onChange={(event) => {
+							setIsi(event.target.value);
+							setTerkirim(false);
+						}}
+						placeholder="Tulis ulasan kamu..."
+						required
+					/>
+				</Form.Group>
+				<div className="text-center">
+					<Button type="submit" variant="primary">
+						Kirim Ulasan
+					</Button>
+				</div>
+			</Form>
+		</Container>
+	);
 }
+
