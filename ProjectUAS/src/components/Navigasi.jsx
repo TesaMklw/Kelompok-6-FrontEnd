@@ -1,15 +1,22 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const tautan = [
 	{ ke: "/", label: "Beranda", akhir: true },
 	{ ke: "/galeri", label: "Galeri" },
 	{ ke: "/menu", label: "Menu" },
 	{ ke: "/ulasan", label: "Ulasan" },
-	{ ke: "/tentang", label: "Tentang Kami" },
+];
+
+const menuTentang = [
+	{ ke: "/tentang#profil", hash: "#profil", label: "Profil" },
+	{ ke: "/tentang#lokasi", hash: "#lokasi", label: "Lokasi" },
+	{ ke: "/tentang#kontak", hash: "#kontak", label: "Kontak" },
 ];
 
 export default function Navigasi() {
+	const { pathname, hash } = useLocation();
+
 	return (
 		<Navbar expand="lg" sticky="top" className="site-header">
 			<Container>
@@ -33,6 +40,22 @@ export default function Navigasi() {
 								{item.label}
 							</Nav.Link>
 						))}
+						<NavDropdown
+							title="Tentang Kami"
+							id="menu-tentang"
+							active={pathname === "/tentang"}
+						>
+							{menuTentang.map((item) => (
+								<NavDropdown.Item
+									key={item.ke}
+									as={Link}
+									to={item.ke}
+									active={pathname === "/tentang" && hash === item.hash}
+								>
+									{item.label}
+								</NavDropdown.Item>
+							))}
+						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

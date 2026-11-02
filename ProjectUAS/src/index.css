@@ -101,7 +101,9 @@ a {
 }
 
 .dropdown-item:hover,
-.dropdown-item:focus {
+.dropdown-item:focus,
+.dropdown-item.active,
+.dropdown-item:active {
 	background: #eee4d1;
 	color: var(--warna-merah);
 }
