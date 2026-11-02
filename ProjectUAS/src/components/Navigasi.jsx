@@ -5,6 +5,8 @@ const tautan = [
   { ke: "/", label: "Beranda", akhir: true },
   { ke: "/galeri", label: "Galeri" },
   { ke: "/menu", label: "Menu" },
+  { ke: "/ulasan", label: "Ulasan" },
+  { ke: "/tentang", label: "Tentang Kami" },
 ];
 
 export default function Navigasi() {
