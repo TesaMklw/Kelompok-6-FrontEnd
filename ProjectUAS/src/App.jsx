@@ -3,8 +3,6 @@ import TataLetak from "./components/TataLetak";
 import Beranda from "./halaman/Beranda";
 import Galeri from "./halaman/Galeri";
 import Menu from "./halaman/Menu";
-import Tentang from "./halaman/Tentang";
-import Ulasan from "./halaman/Ulasan";
 
 export default function App() {
   return (
@@ -14,8 +12,6 @@ export default function App() {
           <Route index element={<Beranda />} />
           <Route path="galeri" element={<Galeri />} />
           <Route path="menu" element={<Menu />} />
-          <Route path="ulasan" element={<Ulasan />} />
-          <Route path="tentang" element={<Tentang />} />
         </Route>
       </Routes>
     </BrowserRouter>

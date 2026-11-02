@@ -1,45 +1,38 @@
-import React from "react";
-import Link from "next/link";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { fotoBeranda } from "../assets/gambar";
 
-const Beranda = () => {
+export default function Beranda() {
   return (
-    <main className="container">
-      <section className="hero section-wrap" aria-labelledby="hero-title">
-        <div className="hero-copy">
+    <Container className="py-4 py-lg-5">
+      <Row className="align-items-center g-4 g-lg-5">
+        <Col lg={6}>
           <p className="eyebrow">
-            <span aria-hidden="true"></span> Warung makan keluarga • sejak 2012
+            <span aria-hidden="true" /> Warung makan keluarga • sejak 2012
           </p>
-          <h1 id="hero-title">
-            Rasa ndeso,<em> hati legowo.</em>
+          <h1 id="hero-title" className="judul-hero">
+            Rasa ndeso, <em>hati legowo.</em>
           </h1>
-          <p className="hero-text">
+          <p className="teks-pendukung">
             Masakan sederhana, dimasak dari bahan-bahan pilihan.
           </p>
-          <div className="hero-actions">
-            {/* Ganti 'to' menjadi 'href' */}
-            <Link className="button" href="/menu">
-              Lihat menu <span aria-hidden="true">↓</span>
-            </Link>
-          </div>
-          <div className="hero-note">
+          <Button as={Link} to="/menu" variant="primary" className="mt-2">
+            Lihat menu
+          </Button>
+          <p className="catatan-hero">
             <strong>★ 4.9 </strong>
             <span>•</span> 2.000+ pelanggan pulang kenyang
-          </div>
-        </div>
-
-        <div className="hero-visual">
-          {/* Menyimpan gambar di folder public/gambar/foto-warung-makan-wonddeso.png */}
+          </p>
+        </Col>
+        <Col lg={6}>
           <img
-            src="/gambar/foto-warung-makan-wonddeso.png"
-            alt="Warung makan Wong Deso"
+            className="foto-hero"
+            src={fotoBeranda.src}
+            alt={fotoBeranda.alt}
           />
-          <div className="image-stamp">
-            <span>Foto warung makan Wong Deso</span>
-          </div>
-        </div>
-      </section>
-    </main>
+          <p className="stempel-foto">{fotoBeranda.keterangan}</p>
+        </Col>
+      </Row>
+    </Container>
   );
 }
-
-export default Beranda; 
