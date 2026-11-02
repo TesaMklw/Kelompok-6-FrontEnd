@@ -9,11 +9,11 @@
     RESET DASAR
     =========== */
 * {
-    box-sizing: border-box;  /* padding & border tidak menambah lebar total elemen */
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;  /* bikin klik link nav jadi scroll halus */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -36,13 +36,13 @@ h1, h2, h3, h4 {
 }
 
 a {
-    color: inherit;          /* link ikut warna teks lainnya, (bukan biru) */
-    text-decoration: none;   /* hilangkan garis bawah link */
+    color: inherit;
+    text-decoration: none;
 }
 
 img, video, iframe {
     display: block;
-    max-width: 100%;   /* gambar/video/peta tidak akan melebihi lebar container */
+    max-width: 100%;
 }
 
 /*  =======
@@ -105,7 +105,7 @@ main {
     HEADER & NAVIGASI (bagian paling atas halaman)
     ============================================== */
 .site-header {
-    position: sticky; /* tetap terlihat saat scroll ke bawah */
+    position: sticky;
     top: 0;
     z-index: 50;
     border-bottom: 1px solid #D8C3A5;
@@ -132,7 +132,7 @@ main {
     padding: 10px 0;
     text-decoration: none;
     color: #3E2723;
-    white-space: nowrap;   /* "Warung Wong DESO" tidak boleh pecah jadi 2 baris */
+    white-space: nowrap;
     flex-shrink: 0;
 }
 
@@ -170,7 +170,7 @@ main {
 .nav-link {
     display: inline-block;
     padding: 3px 15px;
-    white-space: nowrap;   /* "Tentang Kami" tidak pecah baris */
+    white-space: nowrap;
     color: #75675B;
     text-decoration: none;
 }
@@ -180,7 +180,6 @@ main {
     font-weight: 700;
 }
 
-/* ---- Menu Pulldown (dropdown) pada item "Home" ---- */
 .submenu {
     display: none;
     position: absolute;
@@ -226,11 +225,11 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: 34px;
     align-items: center;
-    padding-block: 42px 48px;   /* hanya atas-bawah, kiri-kanan tetap 20px dari .section-wrap */
+    padding-block: 42px 48px;
 }
 
 .hero > * {
-    min-width: 0;   /* cegah kolom grid melebar melebihi layar */
+    min-width: 0;
 }
 
 .hero-visual {
@@ -239,8 +238,8 @@ main {
 
 .hero-visual img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* foto jadi persegi (1:1) */
-    object-fit: cover; /* foto di-crop */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 28px;
     box-shadow: 0 18px 40px rgba(62, 39, 35, .12);
 }
@@ -297,7 +296,6 @@ main {
     padding: 18px 12px;
     min-height: 68px;
 }
-
 
 .stat-box:hover {
     transform: translateY(-4px);
@@ -442,7 +440,7 @@ main {
     display: block;
     width: 100%; 
     height: 150px;
-    object-fit: cover;   /* WAJIB ada ini biar foto beda ukuran/rasio tetap rapi, nggak gepeng */
+    object-fit: cover;
 }
 
 .gallery-grid figcaption {
@@ -466,16 +464,16 @@ main {
 }
 
 .table-scroll {
-    max-height: 540px;   /* tinggi yang mau kelihatan */
-    overflow-y: auto;    /* munculin scrollbar kalau isi lebih panjang */
-    overflow-x: auto;    /* jaga-jaga kalau tabel juga lebar ke samping */
-    border-radius: 8px;  /* opsional, biar konsisten sama style card kamu */
+    max-height: 540px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 8px;
 }
 
 .table-scroll thead th {
     position: sticky;
     top: 0;
-    background: #6B2C2C; /* ganti sesuai warna background yang kamu pakai, biar teks di bawahnya nggak numpuk kelihatan */
+    background: #6B2C2C;
     z-index: 1;
 }
 
@@ -486,14 +484,13 @@ main {
 
 table {
     width: 100%;
-    table-layout: fixed; /* lebar kolom mengikuti nilai width di bawah */
-    border-collapse: collapse; /* garis antar sel jadi satu garis tipis, bukan dobel */
+    table-layout: fixed;
+    border-collapse: collapse;
     text-align: left;
     font-family: inherit;
     font-size: 14px;
 }
 
-/* Lebar tiap kolom */
 th:nth-child(1), td:nth-child(1) { 
     width: 16%; 
 }
@@ -583,7 +580,6 @@ thead th {
 .order-form input:focus,
 .order-form select:focus,
 .order-form textarea:focus {
-    /* :focus = berlaku HANYA saat input sedang diisi */
     border-color: #6B2C2C;
     outline: none;
     box-shadow: 0 0 0 3px rgba(107, 44, 44, .10);
@@ -742,7 +738,6 @@ thead th {
     RESPONSIVE - tablet 900px ke bawah
     ================================= */
 @media only screen and (max-width: 900px) {
-    /* ---- Header ditumpuk vertikal (logo di atas, nav di bawah) ---- */
     .site-header {
         padding: 0;
     }
@@ -774,13 +769,11 @@ thead th {
     .nav-link {
         padding: 6px 10px;
     }
-    /* submenu item terakhir dibuka ke kiri supaya tidak kepotong layar */
     .nav-list > li:last-child .submenu {
         left: auto;
         right: 0;
     }
 
-    /* ---- Hero jadi 1 kolom ---- */
     .hero {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -793,7 +786,7 @@ thead th {
     }
 
     .menu-form-layout {
-        grid-template-columns: 1fr; /* tabel & form ditumpuk ke bawah */
+        grid-template-columns: 1fr;
         gap: 24px;
     }
     .gallery-grid {
@@ -812,18 +805,15 @@ thead th {
         font-size: 24px;
     }
 
-    /* ---- Foto hero lebih landscape di HP supaya tidak terlalu tinggi ---- */
     .hero-visual img {
         aspect-ratio: 4 / 3;
         border-radius: 20px;
     }
 
-    /* ---- Judul halaman mengecil di HP ---- */
     .page-intro h1 {
         font-size: 30px;
     }
 
-    /* ---- Semua grid 3 kolom jadi 1 kolom ---- */
     .stats-grid,
     .contact-grid,
     .gallery-grid {
@@ -839,12 +829,11 @@ thead th {
         gap: 12px;
     }
     .gallery-grid img {
-        height: 220px; /* foto pengunjung tampil lebih besar di HP */
+        height: 220px;
     }
 
-    /* ---- Tabel menu digeser ke samping, bukan digepeng ---- */
     table {
-        min-width: 560px; /* memaksa scroll horizontal di dalam .table-wrap */
+        min-width: 560px;
         font-size: 13px;
     }
     th, td {
@@ -854,7 +843,6 @@ thead th {
         padding-block: 32px;
     }
 
-    /* ---- Input 16px supaya iOS tidak auto-zoom saat diketik ---- */
     .order-form input,
     .order-form select,
     .order-form textarea,
@@ -865,7 +853,6 @@ thead th {
         width: min(280px, 100%);
     }
 
-    /* ---- Footer ditumpuk ke bawah ---- */
     .footer-bottom-row {
         flex-direction: column;
         gap: 8px;
@@ -876,7 +863,6 @@ thead th {
         justify-content: center;
     }
 
-    /* ---- Peta lebih pendek di HP ---- */
     .location-wrap iframe {
         height: 240px;
     }

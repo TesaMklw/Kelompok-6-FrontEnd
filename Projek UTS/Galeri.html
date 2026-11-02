@@ -12,20 +12,12 @@
 </head>
 
 <body>
-    <!-- ============ HEADER: logo/nama toko di bagian paling atas ============ -->
-    <!-- id="beranda" dipakai sebagai TUJUAN link (misal saat logo diklik, balik ke atas) -->
     <header class="site-header" id="beranda">
         <div class="header-inner">
             <a class="brand" href="home.html" aria-label="Warung Wong Deso, kembali ke beranda">
                 <span class="brand-mark">WD</span>
                 <span><strong>Warung Wong</strong><small> DESO</small></span>
             </a>
-            <!-- ============ NAV: menu navigasi (Beranda, Menu, Galeri, Kontak) ============ -->
-            <!-- Tiap href="#xxx" di sini HARUS punya pasangan id="xxx" di suatu tempat di halaman -->
-            <!-- href="#beranda"      -> nyambung ke <header id="beranda"> di atas -->
-            <!-- href="#menu"         -> nyambung ke <section id="menu"> (tabel harga versi putih) -->
-            <!-- href="#gallery-title" -> nyambung ke <h2 id="gallery-title"> di section galeri -->
-            <!-- href="#kontak"       -> nyambung ke <footer id="kontak"> di paling bawah -->
             <nav class="site-nav" aria-label="Navigasi utama">
                 <div class="nav-inner">
                     <ul class="nav-list">
@@ -54,10 +46,8 @@
             <p class="section-intro">Foto dari orang-orang yang pernah berkunjung dan hidangan yang pernah dipesan.</p>
         </div>
 
-        <!-- Grid bersarang: gallery-layout (2 kolom besar) berisi gallery-grid (3 kolom foto) + sidebar -->
         <div class="gallery-layout">
             <article class="gallery-grid">
-                <!-- Tiap <figure> = satu foto + keterangannya (figcaption) -->
                 <figure><img src="gambar/pengunjung-ikan-bakar.jpg" alt="Ikan bakar dengan sambal dan lalapan pesanan pengunjung" loading="lazy">
                     <figcaption>Ikan Bakar Sambal</figcaption>
                     <figcaption>Hidangan yang pernah dipesan</figcaption>
@@ -86,14 +76,10 @@
         </div>
     </section>
 
-    <!-- ============ FOOTER ============ -->
     <footer class="site-footer">
         <div class="footer-inner">
-            <!-- WADAH BARIS BAWAH (ISI HARUS DI DALAM SINI) -->
             <div class="footer-bottom-row">
-                <!-- Sisi Kiri -->
                 <p class="copyright">© 2026 Warung Wong Deso</p>
-                <!-- Sisi Kanan -->
                 <div class="footer-right" id="kontak">
                     <a href="mailto:manganlur@gmail.com">manganlur@gmail.com</a>
                     <span class="divider">|</span>
