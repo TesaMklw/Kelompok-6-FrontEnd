@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 24px 16px;
+    background: #eef2f6;
+    color: #1b2430;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 560px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #d3dbe4;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+h2 {
+    margin: 28px 0 8px;
+    font-size: 1.1rem;
+}
+
+.subjudul {
+    margin: 4px 0 20px;
+    color: #53606f;
+}
+
+.baris {
+    margin-bottom: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #aab5c2;
+    border-radius: 6px;
+    background: #ffffff;
+    color: inherit;
+}
+
+input {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+input:focus, select:focus, button:focus-visible {
+    outline: 3px solid #7cc4bd;
+    outline-offset: 1px;
+}
+
+/* class 'salah' ditambah/dihapus lewat JavaScript (classList) */
+input.salah {
+    border-color: #b42318;
+    background: #fdf0ee;
+}
+
+.pratinjau {
+    margin: 0 0 6px;
+    color: #53606f;
+}
+
+.pratinjau strong {
+    font-family: Consolas, "Courier New", monospace;
+    color: #1b2430;
+}
+
+.pesan {
+    min-height: 1.5em;
+    margin: 0 0 10px;
+    color: #b42318;
+    font-weight: 600;
+}
+
+button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #0f766e;
+    cursor: pointer;
+}
+
+#btn-konversi {
+    background: #0f766e;
+    color: #ffffff;
+}
+
+#btn-reset {
+    background: #ffffff;
+    color: #0f766e;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.daftar-hasil li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid #d3dbe4;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+
+.daftar-hasil li span:last-child {
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+    word-break: break-all;
+    text-align: right;
+}
+
+/* class 'active' dipindah dengan klik, seperti listgroup.js */
+.daftar-hasil li.active {
+    background: #0f766e;
+    border-color: #0f766e;
+    color: #ffffff;
+}
+
+.daftar-langkah li {
+    padding: 4px 0;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+}
+
+.daftar-langkah li.judul-langkah {
+    margin-top: 10px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+}
+
+.kosong {
+    color: #53606f;
+    font-style: italic;
+    cursor: default;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+}

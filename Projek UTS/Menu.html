@@ -4,38 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Daftar menu, harga, dan form pemesanan Warung Wong Deso.">
+    <meta name="description" content="Daftar menu, harga, dan formulir pemesanan Warung Wong Deso.">
     <title>Warung Wong Deso - Menu</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Karla:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="site-header" id="beranda">
         <div class="header-inner">
-            <a class="brand" href="home.html" aria-label="Warung Wong Deso, kembali ke beranda">
+            <a class="brand" href="beranda.html" aria-label="Warung Wong Deso, kembali ke beranda">
                 <span class="brand-mark">WD</span>
                 <span><strong>Warung Wong</strong><small> DESO</small></span>
             </a>
             <nav class="site-nav" aria-label="Navigasi utama">
                 <div class="nav-inner">
                     <ul class="nav-list">
+                        <li><a class="nav-link" href="beranda.html">Beranda</a></li>
+                        <li><a class="nav-link" href="galeri.html">Galeri</a></li>
+                        <li><a class="nav-link active" href="menu.html">Menu</a></li>
+                        <li><a class="nav-link" href="ulasan.html">Ulasan</a></li>
                         <li>
-                            <a class="nav-link active" href="home.html">Home &#9662;</a>
+                            <a class="nav-link" href="tentangKami.html">Tentang Kami &#9662;</a>
                             <ul class="submenu">
-                                <li><a href="home.html#tentang">Tentang Kami</a></li>
-                                <li><a href="home.html#lokasi">Lokasi</a></li>
-                                <li><a href="home.html#kontak">Kontak</a></li>
+                                <li><a href="tentangKami.html#tentang">Profil Kami</a></li>
+                                <li><a href="tentangKami.html#lokasi">Lokasi</a></li>
+                                <li><a href="tentangKami.html#kontak">Kontak</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link" href="Galeri.html">Galeri</a></li>
-                        <li><a class="nav-link" href="Menu.html">Menu</a></li>
-                        <li><a class="nav-link" href="Ulasan.html">Ulasan</a></li>
                     </ul>
                 </div>
             </nav>
@@ -43,11 +40,10 @@
     </header>
 
     <main class="container">
-        <!-- ============ MENU (tabel harga) + FORM PEMESANAN berdampingan ============ -->
         <section class="menu-form-layout section-wrap" id="pesan" aria-labelledby="catalogue-title">
             <div class="table-side">
-                <h2 id="catalogue-title">Menu</h2>
-                <div class="table-wrap table-wrap--light">
+                <h2 id="catalogue-title">MENU</h2>
+                <div class="table-scroll table-wrap table-wrap--light">
                     <table>
                         <thead>
                             <tr>
@@ -210,15 +206,20 @@
                             </tr>
 
                             <tr class="table-note">
-                                <td colspan="4"><strong>Info:</strong> Semua menu dibuat fresh setiap hari. Harga sudah termasuk pajak.</td>
+                                <td colspan="4"><strong>Info:</strong> Semua menu dibuat segar setiap hari. Harga sudah termasuk pajak.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
+<<<<<<< HEAD
             <aside class="form-section">
                 <h2>FORM PEMESANAN</h2>
+=======
+            <div class="form-side">
+                <h2>FORMULIR PEMESANAN</h2>
+>>>>>>> dbe746807f9d92181238aecafb239cf0bc6cf67c
                 <form class="order-form" action="#" method="post">
                     <label for="nama">Nama Lengkap</label>
                     <input type="text" id="nama" name="nama" placeholder="Masukkan nama" required>
@@ -279,15 +280,11 @@
         </section>
     </main>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="site-footer" id="kontak">
+    <footer class="site-footer">
         <div class="footer-inner">
-            <!-- WADAH BARIS BAWAH (ISI HARUS DI DALAM SINI) -->
             <div class="footer-bottom-row">
-                <!-- Sisi Kiri -->
                 <p class="copyright">© 2026 Warung Wong Deso</p>
-                <!-- Sisi Kanan -->
-                <div class="footer-right">
+                <div class="footer-right" id="kontak">
                     <a href="mailto:manganlur@gmail.com">manganlur@gmail.com</a>
                     <span class="divider">|</span>
                     <a href="tel:+6282122517112">+6282122517112</a>
