@@ -88,6 +88,60 @@ a {
 	color: var(--warna-merah);
 }
 
+.nav-tentang {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.nav-tentang .nav-link {
+	padding-right: 0.2rem;
+}
+
+.nav-tentang .nav-tentang-panah {
+	color: var(--warna-redup);
+	padding: 0.45rem 0.75rem 0.45rem 0.15rem;
+	line-height: 1;
+	text-decoration: none;
+	box-shadow: none;
+}
+
+.nav-tentang .nav-tentang-panah::after {
+	margin-left: 0;
+	vertical-align: 0.12em;
+}
+
+.nav-tentang .nav-link.active + .nav-tentang-panah,
+.nav-tentang .nav-tentang-panah:hover,
+.nav-tentang .nav-tentang-panah:focus,
+.nav-tentang .nav-tentang-panah.show {
+	color: var(--warna-merah);
+}
+
+.nav-tentang .dropdown-menu {
+	flex-basis: 100%;
+}
+
+@media (min-width: 992px) {
+	.nav-tentang:hover > .dropdown-menu,
+	.nav-tentang:focus-within > .dropdown-menu {
+		display: block;
+	}
+
+	.nav-tentang > .dropdown-menu {
+		margin-top: 0;
+	}
+
+	.nav-tentang > .dropdown-menu::before {
+		content: "";
+		position: absolute;
+		top: -0.6rem;
+		right: 0;
+		left: 0;
+		height: 0.6rem;
+	}
+}
+
 .dropdown-menu {
 	background: var(--warna-kertas);
 	border: 1px solid var(--warna-garis);

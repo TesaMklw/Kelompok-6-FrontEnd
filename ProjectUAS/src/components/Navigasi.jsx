@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const tautan = [
@@ -40,22 +40,29 @@ export default function Navigasi() {
 								{item.label}
 							</Nav.Link>
 						))}
-						<NavDropdown
-							title="Tentang Kami"
-							id="menu-tentang"
-							active={pathname === "/tentang"}
-						>
-							{menuTentang.map((item) => (
-								<NavDropdown.Item
-									key={item.ke}
-									as={Link}
-									to={item.ke}
-									active={pathname === "/tentang" && hash === item.hash}
-								>
-									{item.label}
-								</NavDropdown.Item>
-							))}
-						</NavDropdown>
+						<Dropdown className="nav-item nav-tentang">
+							<Nav.Link as={NavLink} to="/tentang">
+								Tentang Kami
+							</Nav.Link>
+							<Dropdown.Toggle
+								variant="link"
+								id="menu-tentang"
+								className="nav-tentang-panah"
+								aria-label="Buka bagian Tentang Kami"
+							/>
+							<Dropdown.Menu renderOnMount>
+								{menuTentang.map((item) => (
+									<Dropdown.Item
+										key={item.ke}
+										as={Link}
+										to={item.ke}
+										active={pathname === "/tentang" && hash === item.hash}
+									>
+										{item.label}
+									</Dropdown.Item>
+								))}
+							</Dropdown.Menu>
+						</Dropdown>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
