@@ -2,7 +2,6 @@ import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const tautan = [
-	{ ke: "/", label: "Beranda", akhir: true },
 	{ ke: "/galeri", label: "Galeri" },
 	{ ke: "/menu", label: "Menu" },
 	{ ke: "/ulasan", label: "Ulasan" },
@@ -30,16 +29,9 @@ export default function Navigasi() {
 				<Navbar.Toggle aria-controls="navigasi-utama" />
 				<Navbar.Collapse id="navigasi-utama">
 					<Nav className="ms-lg-auto align-items-lg-center">
-						{tautan.map((item) => (
-							<Nav.Link
-								key={item.ke}
-								as={NavLink}
-								to={item.ke}
-								end={item.akhir}
-							>
-								{item.label}
-							</Nav.Link>
-						))}
+						<Nav.Link as={NavLink} to="/" end>
+							Beranda
+						</Nav.Link>
 						<Dropdown className="nav-item nav-tentang">
 							<Nav.Link as={NavLink} to="/tentang">
 								Tentang Kami
@@ -63,6 +55,11 @@ export default function Navigasi() {
 								))}
 							</Dropdown.Menu>
 						</Dropdown>
+						{tautan.map((item) => (
+							<Nav.Link key={item.ke} as={NavLink} to={item.ke}>
+								{item.label}
+							</Nav.Link>
+						))}
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
