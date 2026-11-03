@@ -146,7 +146,7 @@ a {
 	background: var(--warna-kertas);
 	border: 1px solid var(--warna-garis);
 	border-radius: 12px;
-	box-shadow: 0 12px 30px rgba(62, 39, 35, 0.12);
+	box-shadow: none;
 }
 
 .dropdown-item {
@@ -228,6 +228,18 @@ a {
 	color: var(--warna-redup);
 }
 
+.btn {
+	--bs-btn-box-shadow: none;
+	--bs-btn-focus-box-shadow: none;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:focus-visible {
+	box-shadow: none;
+}
+
 .btn-primary {
 	--bs-btn-bg: var(--warna-merah);
 	--bs-btn-border-color: var(--warna-merah);
@@ -241,6 +253,21 @@ a {
 	font-weight: 700;
 	border-radius: 12px;
 	padding: 0.7rem 1.3rem;
+}
+
+.btn-konfirmasi,
+.btn-konfirmasi:disabled {
+	background-color: var(--warna-merah);
+	border-color: var(--warna-merah);
+	color: var(--warna-krem);
+}
+
+.btn-konfirmasi:hover,
+.btn-konfirmasi:focus,
+.btn-konfirmasi:active {
+	background-color: #542222;
+	border-color: #542222;
+	color: var(--warna-krem);
 }
 
 .galeri-grid {
@@ -302,6 +329,20 @@ a {
 	border: 1px solid var(--warna-garis);
 }
 
+@media (min-width: 992px) {
+	.kolom-menu {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+	}
+
+	.kolom-menu .bungkus-tabel {
+		flex: 1 1 0;
+		min-height: 0;
+		max-height: none;
+	}
+}
+
 .tabel-menu {
 	--bs-table-bg: transparent;
 	--bs-table-color: var(--warna-tinta);
@@ -323,10 +364,11 @@ a {
 	vertical-align: middle;
 }
 
-.sel-kategori {
-	background: #eee4d1;
+.tabel-menu .sel-kategori {
+	background-color: #eee4d1;
 	text-align: center;
 	white-space: nowrap;
+	cursor: default;
 }
 
 .catatan-tabel td {
@@ -334,10 +376,70 @@ a {
 	color: var(--warna-krem);
 }
 
+.sel-pesan {
+	cursor: pointer;
+}
+
+.baris-menu:hover .sel-pesan,
+.baris-menu:focus-within .sel-pesan {
+	background: #f3eadc;
+}
+
+.baris-cocok .sel-pesan,
+.baris-cocok:hover .sel-pesan,
+.baris-cocok:focus-within .sel-pesan {
+	background: #c9b28f;
+	color: var(--warna-tinta);
+}
+
+.judul-kartu {
+	font-family: var(--font-judul);
+	font-size: 1.35rem;
+	margin-bottom: 12px;
+}
+
+.teks-kosong,
+.harga-pesanan {
+	color: var(--warna-redup);
+}
+
+.isi-pesanan {
+	height: 168px;
+	overflow-y: auto;
+}
+
+.daftar-pesanan {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.baris-pesanan {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--warna-garis);
+}
+
+.pengatur-jumlah {
+	display: flex;
+	gap: 8px;
+}
+
+.total-pesanan {
+	display: flex;
+	justify-content: space-between;
+	margin: 14px 0;
+	font-size: 1.05rem;
+}
+
 .formulir-pesan,
 .kotak-lokasi,
 .kartu-stat,
-.kartu-kontak {
+.kartu-kontak,
+.kartu-pesanan {
 	background: var(--warna-kertas);
 	border: 1px solid var(--warna-garis);
 	border-radius: 0;
@@ -359,11 +461,13 @@ a {
 	border-radius: 8px;
 }
 
+.form-control:hover,
+.form-select:hover,
 .form-control:focus,
 .form-select:focus {
-	background: var(--warna-krem);
+	background: #efe4d4;
 	border-color: var(--warna-merah);
-	box-shadow: 0 0 0 0.2rem rgba(107, 44, 44, 0.12);
+	box-shadow: none;
 	color: var(--warna-tinta);
 }
 
@@ -414,8 +518,7 @@ a {
 
 .kartu-stat:hover,
 .kartu-kontak:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 12px 28px rgba(62, 39, 35, 0.08);
+	background: #f3eadc;
 }
 
 .halaman-ulasan {
