@@ -227,6 +227,14 @@ a {
 	color: var(--warna-redup);
 }
 
+.admin-table tbody tr.baris-menu {
+	cursor: pointer;
+}
+
+.admin-table .baris-terpilih td {
+	background: #eee4d1;
+}
+
 .order-table-card {
 	overflow: hidden;
 }
@@ -387,6 +395,9 @@ a {
 	--bs-btn-color: var(--warna-krem);
 	--bs-btn-hover-color: var(--warna-krem);
 	--bs-btn-active-color: var(--warna-krem);
+	--bs-btn-disabled-color: var(--warna-krem);
+	--bs-btn-disabled-bg: var(--warna-merah);
+	--bs-btn-disabled-border-color: var(--warna-merah);
 	font-weight: 700;
 	border-radius: 12px;
 	padding: 0.7rem 1.3rem;
@@ -731,6 +742,144 @@ a {
 
 	.kotak-lokasi iframe {
 		height: 240px;
+	}
+}
+
+.nav-aksi {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-left: auto;
+}
+
+.nav-aksi .navbar-toggler {
+	margin-left: 0.15rem;
+}
+
+.btn-nav {
+	padding: 0.45rem 0.9rem;
+	font-size: 0.82rem;
+	white-space: nowrap;
+	border-radius: 999px;
+}
+
+.btn-garis {
+	--bs-btn-color: var(--warna-merah);
+	--bs-btn-border-color: var(--warna-merah);
+	--bs-btn-hover-bg: var(--warna-merah);
+	--bs-btn-hover-border-color: var(--warna-merah);
+	--bs-btn-hover-color: var(--warna-krem);
+	--bs-btn-active-bg: #542222;
+	--bs-btn-active-border-color: #542222;
+	--bs-btn-active-color: var(--warna-krem);
+	--bs-btn-disabled-color: var(--warna-merah);
+	--bs-btn-disabled-border-color: var(--warna-merah);
+	font-weight: 700;
+	border-radius: 999px;
+	background: transparent;
+}
+
+.btn-profil.btn-garis {
+	border-radius: 12px;
+	padding: 0.7rem 1.3rem;
+}
+
+.nama-akun {
+	font-weight: 500;
+}
+
+.kartu-akun,
+.kartu-profil {
+	background: var(--warna-kertas);
+	border: 1px solid var(--warna-garis);
+	border-radius: 18px;
+}
+
+.akun-tab .nav-link {
+	color: var(--warna-redup);
+	font-weight: 700;
+	border-radius: 999px;
+}
+
+.akun-tab .nav-link.active {
+	background: var(--warna-merah);
+	color: var(--warna-krem);
+}
+
+.akun-demo {
+	margin-top: 1.25rem;
+	padding: 0.9rem 1rem;
+	background: #eee4d1;
+	border-radius: 12px;
+	color: var(--warna-tinta);
+	font-size: 0.92rem;
+}
+
+.profil-ajakan {
+	font-family: var(--font-judul);
+	font-size: clamp(1.8rem, 4vw, 2.6rem);
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+.daftar-profil {
+	margin: 0;
+}
+
+.baris-profil {
+	display: grid;
+	grid-template-columns: 7.5rem 1fr;
+	gap: 0.75rem;
+	padding: 0.75rem 0;
+	border-bottom: 1px solid var(--warna-garis);
+}
+
+.baris-profil dt {
+	margin: 0;
+	color: var(--warna-redup);
+	font-weight: 700;
+}
+
+.baris-profil dd {
+	margin: 0;
+}
+
+.form-pesan {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.form-pesan:disabled {
+	opacity: 0.72;
+}
+
+@media (min-width: 992px) {
+	.site-header .navbar-collapse {
+		order: 1;
+		flex-grow: 1;
+	}
+
+	.site-header .nav-aksi {
+		order: 2;
+		margin-left: 0.75rem;
+	}
+}
+
+@media (max-width: 575px) {
+	.brand {
+		gap: 8px;
+		font-size: 1.15rem;
+	}
+
+	.brand-mark {
+		font-size: 1.4rem;
+	}
+
+	.btn-nav {
+		padding: 0.4rem 0.7rem;
+		font-size: 0.75rem;
 	}
 }
 

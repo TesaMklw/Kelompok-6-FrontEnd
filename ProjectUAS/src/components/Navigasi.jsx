@@ -1,11 +1,12 @@
-import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 const tautan = [
 	{ ke: "/galeri", label: "Galeri" },
 	{ ke: "/menu", label: "Menu" },
 	{ ke: "/ulasan", label: "Ulasan" },
-	{ ke: "/admin", label: "Admin" },
+	{ ke: "/profil", label: "Profil" },
 ];
 
 const menuTentang = [
@@ -16,6 +17,7 @@ const menuTentang = [
 
 export default function Navigasi() {
 	const { pathname, hash } = useLocation();
+	const { pengguna, keluar } = useAuth();
 
 	return (
 		<Navbar expand="lg" sticky="top" className="site-header">
@@ -27,7 +29,23 @@ export default function Navigasi() {
 						<small> DESO</small>
 					</span>
 				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="navigasi-utama" />
+				<div className="nav-aksi">
+					{pengguna ? (
+						<Button
+							type="button"
+							variant="outline-primary"
+							className="btn-nav btn-garis"
+							onClick={keluar}
+						>
+							Keluar
+						</Button>
+					) : (
+						<Button as={Link} to="/masuk" className="btn-nav">
+							Sign In / Sign Up
+						</Button>
+					)}
+					<Navbar.Toggle aria-controls="navigasi-utama" />
+				</div>
 				<Navbar.Collapse id="navigasi-utama">
 					<Nav className="ms-lg-auto align-items-lg-center">
 						<Nav.Link as={NavLink} to="/" end>
@@ -67,4 +85,3 @@ export default function Navigasi() {
 		</Navbar>
 	);
 }
-

@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 import Kaki from "./Kaki";
 import Navigasi from "./Navigasi";
 
 export default function TataLetak() {
 	const { pathname, hash } = useLocation();
+	const { pengguna } = useAuth();
+	const panelAdmin = pathname === "/admin" && pengguna?.peran === "admin";
 
 	useEffect(() => {
 		if (hash) {
@@ -19,7 +22,7 @@ export default function TataLetak() {
 
 	return (
 		<>
-			<Navigasi />
+			{!panelAdmin && <Navigasi />}
 			<main className="isi-halaman">
 				<Outlet />
 			</main>

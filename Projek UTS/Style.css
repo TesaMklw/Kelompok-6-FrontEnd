@@ -463,11 +463,6 @@ main {
     overflow-x: auto;
 }
 
-<<<<<<< HEAD
-/* optional light variant */
-.table-wrap--light {
-    background: var(--bg-page);
-=======
 .table-scroll {
     max-height: 540px;
     overflow-y: auto;
@@ -485,7 +480,6 @@ main {
 .table-wrap--light {
     background: #FFFAF0;
     color: #3E2723;
->>>>>>> dbe746807f9d92181238aecafb239cf0bc6cf67c
 }
 
 /* table base */
@@ -494,13 +488,8 @@ table {
     table-layout: fixed;
     border-collapse: collapse;
     text-align: left;
-<<<<<<< HEAD
-    font-size: 15px; /* sedikit lebih besar sesuai wireframe */
-    min-width: 720px; /* agar kolom tidak terlalu sempit di desktop */
-=======
     font-family: inherit;
     font-size: 14px;
->>>>>>> dbe746807f9d92181238aecafb239cf0bc6cf67c
 }
 
 th:nth-child(1), td:nth-child(1) { 
@@ -547,23 +536,10 @@ thead th {
 
 /* note row */
 .table-note td {
-<<<<<<< HEAD
-    background: var(--note-bg) !important;
-    font-weight: 600;
-}
-
-/* small screens: make table scrollable and reduce padding */
-@media (max-width: 640px){
-    table { font-size: 13px; min-width: 640px; }
-    th, td { padding: 10px; }
-}
-
-=======
     background: #6B2C2C !important;
     color: #F8F1E7;
 }
 
->>>>>>> dbe746807f9d92181238aecafb239cf0bc6cf67c
 /*  ====================================
     MENU + FORM PEMESANAN (halaman Menu)
     ==================================== */

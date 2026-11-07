@@ -10,6 +10,8 @@ import {
 	Row,
 	Table,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 import { cariMenu, formatRupiah, kelompokMenu } from "../data/menu";
 
 const awalPelanggan = {
@@ -18,6 +20,16 @@ const awalPelanggan = {
 	alamat: "",
 	catatan: "",
 };
+
+function dataPelanggan(pengguna) {
+	if (pengguna?.peran !== "pelanggan") return awalPelanggan;
+	return {
+		nama: pengguna.nama,
+		telepon: pengguna.telepon,
+		alamat: pengguna.alamat,
+		catatan: "",
+	};
+}
 
 const metodeBayar = [
 	{ nilai: "tunai", label: "Tunai" },
@@ -61,14 +73,25 @@ function simpanPesananKeAdmin(pelanggan, pesanan) {
 }
 
 export default function Menu() {
+	const { pengguna } = useAuth();
+	const bolehPesan = pengguna?.peran === "pelanggan";
 	const [keranjang, setKeranjang] = useState([]);
-	const [pelanggan, setPelanggan] = useState(awalPelanggan);
+	const [pelanggan, setPelanggan] = useState(() => dataPelanggan(pengguna));
 	const [cari, setCari] = useState("");
 	const [urutan, setUrutan] = useState("bawaan");
 	const [tampilKonfirmasi, setTampilKonfirmasi] = useState(false);
 	const [metode, setMetode] = useState("");
 	const [berhasil, setBerhasil] = useState(false);
 	const sudahBayar = useRef(false);
+
+	const kunciAkun = pengguna?.peran === "pelanggan" ? pengguna.username : "";
+	const [akunForm, setAkunForm] = useState(kunciAkun);
+
+	if (kunciAkun !== akunForm) {
+		setAkunForm(kunciAkun);
+		setPelanggan(dataPelanggan(pengguna));
+		if (!kunciAkun) setKeranjang([]);
+	}
 
 	useEffect(() => {
 		document.title = "Warung Wong Deso - Menu";
@@ -119,6 +142,7 @@ export default function Menu() {
 	}
 
 	function tambah(id) {
+		if (!bolehPesan) return;
 		setBerhasil(false);
 		setKeranjang((sekarang) => {
 			const ada = sekarang.find((item) => item.id === id);
@@ -141,7 +165,7 @@ export default function Menu() {
 
 	function bukaKonfirmasi(event) {
 		event.preventDefault();
-		if (pesanan.length === 0) return;
+		if (!bolehPesan || pesanan.length === 0) return;
 		setMetode("");
 		setTampilKonfirmasi(true);
 	}
@@ -265,6 +289,14 @@ export default function Menu() {
 
 				<Col lg={5}>
 					<h2 className="judul-bagian">Formulir Pemesanan</h2>
+					{!bolehPesan && (
+						<Alert variant="warning">
+							{pengguna?.peran === "admin"
+								? "Akun admin tidak bisa memesan. Sign in dengan akun pelanggan."
+								: "Kamu belum bisa memesan. Sign up atau Sign in sekarang."}{" "}
+							<Link to="/masuk">Sign In / Sign Up</Link>
+						</Alert>
+					)}
 					{berhasil && (
 						<Alert
 							variant="success"
@@ -323,6 +355,7 @@ export default function Menu() {
 					</Card>
 
 					<Form onSubmit={bukaKonfirmasi}>
+						<fieldset className="form-pesan" disabled={!bolehPesan}>
 						<Card className="kartu-pesanan">
 							<Card.Body>
 								<h3 className="judul-kartu">Data Pemesan</h3>
@@ -381,10 +414,11 @@ export default function Menu() {
 							type="submit"
 							variant="primary"
 							className="w-100 btn-konfirmasi mt-3"
-							disabled={pesanan.length === 0}
+							disabled={!bolehPesan || pesanan.length === 0}
 						>
 							Konfirmasi Pesanan
 						</Button>
+						</fieldset>
 					</Form>
 				</Col>
 			</Row>

@@ -7,20 +7,27 @@ import {
 	Container,
 	Form,
 	ListGroup,
+	Modal,
 	ProgressBar,
 	Row,
 	Table,
 } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 const STORAGE_KEY = "warung-wong-deso-admin";
-const LOGIN_KEY = "warung-wong-deso-admin-login";
-const ADMIN_CREDENTIAL = { username: "admin", password: "123456" };
 
 const defaultMenu = [];
 
 const defaultOrders = [];
 
 const statusSteps = ["Menunggu", "Dimasak", "Siap diantar", "Selesai"];
+const formulirKosong = {
+	nama: "",
+	kategori: "Menu Utama",
+	harga: "",
+	deskripsi: "",
+};
 const formatRupiah = (nilai) => `Rp\u00a0${Number(nilai).toLocaleString("id-ID")}`;
 
 function readStoredData() {
@@ -42,22 +49,16 @@ function readStoredData() {
 }
 
 export default function Admin() {
-	const [isLoggedIn, setIsLoggedIn] = useState(() => {
-		if (typeof window === "undefined") return false;
-		return window.localStorage.getItem(LOGIN_KEY) === "true";
-	});
-	const [loginForm, setLoginForm] = useState({ username: "", password: "" });
-	const [loginError, setLoginError] = useState("");
+	const { pengguna, keluar } = useAuth();
+	const navigate = useNavigate();
+	const adminAktif = pengguna?.peran === "admin";
 	const [tab, setTab] = useState("dashboard");
 	const [menu, setMenu] = useState(() => readStoredData().menu);
 	const [orders, setOrders] = useState(() => readStoredData().orders);
-	const [form, setForm] = useState({
-		nama: "",
-		kategori: "Menu Utama",
-		harga: "",
-		deskripsi: "",
-	});
+	const [form, setForm] = useState(formulirKosong);
 	const [editingId, setEditingId] = useState(null);
+	const [tampilReset, setTampilReset] = useState(false);
+	const [konfirmasiMenu, setKonfirmasiMenu] = useState(null);
 
 	useEffect(() => {
 		document.title = "Warung Wong Deso - Panel Admin";
@@ -68,12 +69,6 @@ export default function Admin() {
 			window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ menu, orders }));
 		}
 	}, [menu, orders]);
-
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			window.localStorage.setItem(LOGIN_KEY, String(isLoggedIn));
-		}
-	}, [isLoggedIn]);
 
 	const totalPendapatan = useMemo(
 		() => orders.reduce((sum, item) => sum + Number(item.total || 0), 0),
@@ -142,31 +137,6 @@ export default function Admin() {
 		];
 	}, [orders]);
 
-	const handleLoginChange = (event) => {
-		const { name, value } = event.target;
-		setLoginForm((current) => ({ ...current, [name]: value }));
-	};
-
-	const handleLoginSubmit = (event) => {
-		event.preventDefault();
-		const isValid =
-			loginForm.username === ADMIN_CREDENTIAL.username &&
-			loginForm.password === ADMIN_CREDENTIAL.password;
-
-		if (isValid) {
-			setLoginError("");
-			setIsLoggedIn(true);
-			return;
-		}
-
-		setLoginError("Username atau password salah.");
-	};
-
-	const handleLogout = () => {
-		setIsLoggedIn(false);
-		setLoginForm({ username: "", password: "" });
-	};
-
 	const handleFormChange = (event) => {
 		const { name, value } = event.target;
 		setForm((current) => ({ ...current, [name]: value }));
@@ -174,22 +144,38 @@ export default function Admin() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const nextMenu = {
-			id: editingId ?? Date.now(),
-			nama: form.nama,
-			kategori: form.kategori,
-			harga: Number(form.harga) || 0,
-			deskripsi: form.deskripsi,
-		};
+		setKonfirmasiMenu({
+			jenis: editingId ? "ubah" : "tambah",
+			item: {
+				id: editingId ?? Date.now(),
+				nama: form.nama,
+				kategori: form.kategori,
+				harga: Number(form.harga) || 0,
+				deskripsi: form.deskripsi,
+			},
+		});
+	};
 
-		if (editingId) {
-			setMenu((current) => current.map((item) => (item.id === editingId ? nextMenu : item)));
+	const jalankanKonfirmasiMenu = () => {
+		if (!konfirmasiMenu) return;
+		const { jenis, item } = konfirmasiMenu;
+
+		if (jenis === "hapus") {
+			setMenu((current) => current.filter((menuItem) => menuItem.id !== item.id));
+			if (editingId === item.id) {
+				setEditingId(null);
+				setForm(formulirKosong);
+			}
+		} else if (jenis === "ubah") {
+			setMenu((current) => current.map((menuItem) => (menuItem.id === item.id ? item : menuItem)));
+			setEditingId(null);
+			setForm(formulirKosong);
 		} else {
-			setMenu((current) => [nextMenu, ...current]);
+			setMenu((current) => [item, ...current]);
+			setForm(formulirKosong);
 		}
 
-		setForm({ nama: "", kategori: "Menu Utama", harga: "", deskripsi: "" });
-		setEditingId(null);
+		setKonfirmasiMenu(null);
 	};
 
 	const handleEdit = (item) => {
@@ -203,8 +189,8 @@ export default function Admin() {
 		setTab("menu");
 	};
 
-	const handleDelete = (id) => {
-		setMenu((current) => current.filter((item) => item.id !== id));
+	const mintaHapus = (item) => {
+		setKonfirmasiMenu({ jenis: "hapus", item });
 	};
 
 	const updateOrderStatus = (id, status) => {
@@ -213,46 +199,35 @@ export default function Admin() {
 		);
 	};
 
+	const handleLogout = () => {
+		keluar();
+		navigate("/");
+	};
+
 	const resetAdminData = () => {
 		setMenu([]);
 		setOrders([]);
 		if (typeof window !== "undefined") {
 			window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ menu: [], orders: [] }));
 		}
+		setTampilReset(false);
 	};
 
-	if (!isLoggedIn) {
+	if (!adminAktif) {
 		return (
 			<Container className="py-5">
 				<Row className="justify-content-center">
-					<Col xs={12} md={6}>
+					<Col xs={12} md={7} lg={5}>
 						<Card className="shadow-sm border-0 admin-login-card">
-							<Card.Body className="p-4 p-lg-5">
-								<p className="eyebrow mb-2"><span aria-hidden="true" /> Login Admin</p>
-								<h1 className="judul-bagian mb-3">Warung Wong Deso</h1>
-								<Form onSubmit={handleLoginSubmit}>
-									<Form.Group className="mb-3">
-										<Form.Label>Username</Form.Label>
-										<Form.Control
-											name="username"
-											value={loginForm.username}
-											onChange={handleLoginChange}
-											required
-										/>
-									</Form.Group>
-									<Form.Group className="mb-3">
-										<Form.Label>Password</Form.Label>
-										<Form.Control
-											type="password"
-											name="password"
-											value={loginForm.password}
-											onChange={handleLoginChange}
-											required
-										/>
-									</Form.Group>
-									{loginError && <p className="text-danger small mb-3">{loginError}</p>}
-									<Button type="submit" className="w-100" variant="primary">Masuk</Button>
-								</Form>
+							<Card.Body className="p-4 p-lg-5 text-center">
+								<p className="eyebrow mb-2"><span aria-hidden="true" /> Panel Admin</p>
+								<h1 className="judul-bagian mb-3">Sign in sebagai admin</h1>
+								<p className="teks-pendukung mx-auto mb-4">
+									Admin masuk dari halaman yang sama dengan pelanggan. Gunakan akun admin pada halaman Sign In.
+								</p>
+								<Button as={Link} to="/masuk" variant="primary">
+									Sign In / Sign Up
+								</Button>
 							</Card.Body>
 						</Card>
 					</Col>
@@ -272,7 +247,7 @@ export default function Admin() {
 					<Button variant={tab === "dashboard" ? "primary" : "outline-primary"} onClick={() => setTab("dashboard")}>Dashboard</Button>
 					<Button variant={tab === "menu" ? "primary" : "outline-primary"} onClick={() => setTab("menu")}>Kelola Menu</Button>
 					<Button variant={tab === "orders" ? "primary" : "outline-primary"} onClick={() => setTab("orders")}>Pesanan</Button>
-					<Button variant="outline-danger" onClick={resetAdminData}>Reset Data</Button>
+					<Button variant="outline-danger" onClick={() => setTampilReset(true)}>Reset Data</Button>
 					<Button variant="outline-secondary" onClick={handleLogout}>Keluar</Button>
 				</div>
 			</div>
@@ -386,7 +361,7 @@ export default function Admin() {
 					<Col lg={5}>
 						<Card className="shadow-sm border-0 admin-card h-100">
 							<Card.Body>
-								<h3 className="judul-kartu mb-3">{editingId ? "Edit Menu" : "Tambah Menu Baru"}</h3>
+								<h3 className="judul-kartu mb-3">{editingId ? "Ubah Menu" : "Tambah Menu Baru"}</h3>
 								<Form onSubmit={handleSubmit}>
 									<Form.Group className="mb-3">
 										<Form.Label>Nama Menu</Form.Label>
@@ -413,7 +388,7 @@ export default function Admin() {
 										{editingId && (
 											<Button variant="outline-secondary" onClick={() => {
 												setEditingId(null);
-												setForm({ nama: "", kategori: "Menu Utama", harga: "", deskripsi: "" });
+												setForm(formulirKosong);
 											}}>
 												Batal
 											</Button>
@@ -432,20 +407,42 @@ export default function Admin() {
 										<tr><th>Nama</th><th>Kategori</th><th>Harga</th><th>Deskripsi</th><th>Aksi</th></tr>
 									</thead>
 									<tbody>
-										{menu.map((item) => (
-											<tr key={item.id}>
-												<td>{item.nama}</td>
-												<td>{item.kategori}</td>
-												<td className="text-nowrap">{formatRupiah(item.harga)}</td>
-												<td>{item.deskripsi}</td>
-												<td>
-													<div className="d-flex gap-2">
-														<Button size="sm" variant="outline-primary" onClick={() => handleEdit(item)}>Edit</Button>
-														<Button size="sm" variant="outline-danger" onClick={() => handleDelete(item.id)}>Hapus</Button>
-													</div>
+										{menu.length === 0 ? (
+											<tr>
+												<td colSpan={5} className="text-center py-4 text-muted">
+													Belum ada menu tambahan. Tambah menu di formulir sebelah kiri, lalu pilih barisnya untuk diubah atau dihapus.
 												</td>
 											</tr>
-										))}
+										) : (
+											menu.map((item) => (
+												<tr
+													key={item.id}
+													className={editingId === item.id ? "baris-menu baris-terpilih" : "baris-menu"}
+													onClick={() => handleEdit(item)}
+												>
+													<td>{item.nama}</td>
+													<td>{item.kategori}</td>
+													<td className="text-nowrap">{formatRupiah(item.harga)}</td>
+													<td>{item.deskripsi}</td>
+													<td>
+														<div className="d-flex gap-2">
+															<Button size="sm" variant="outline-primary" onClick={(event) => {
+																event.stopPropagation();
+																handleEdit(item);
+															}}>
+																Ubah
+															</Button>
+															<Button size="sm" variant="outline-danger" onClick={(event) => {
+																event.stopPropagation();
+																mintaHapus(item);
+															}}>
+																Hapus
+															</Button>
+														</div>
+													</td>
+												</tr>
+											))
+										)}
 									</tbody>
 								</Table>
 							</Card.Body>
@@ -513,6 +510,52 @@ export default function Admin() {
 					</Card.Body>
 				</Card>
 			)}
+
+			<Modal show={Boolean(konfirmasiMenu)} onHide={() => setKonfirmasiMenu(null)} centered>
+				<Modal.Header closeButton>
+					<Modal.Title>
+						{konfirmasiMenu?.jenis === "hapus" && "Hapus Menu"}
+						{konfirmasiMenu?.jenis === "ubah" && "Ubah Menu"}
+						{konfirmasiMenu?.jenis === "tambah" && "Tambah Menu"}
+					</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					{konfirmasiMenu?.jenis === "hapus" && `Yakin ingin menghapus menu "${konfirmasiMenu.item.nama}"?`}
+					{konfirmasiMenu?.jenis === "ubah" && `Yakin ingin menyimpan perubahan menu "${konfirmasiMenu.item.nama}"?`}
+					{konfirmasiMenu?.jenis === "tambah" && `Yakin ingin menambahkan menu "${konfirmasiMenu.item.nama}"?`}
+				</Modal.Body>
+				<Modal.Footer>
+					<Button variant="outline-secondary" onClick={() => setKonfirmasiMenu(null)}>
+						Batal
+					</Button>
+					{konfirmasiMenu?.jenis === "hapus" && (
+						<Button variant="outline-danger" onClick={jalankanKonfirmasiMenu}>Ya, hapus</Button>
+					)}
+					{konfirmasiMenu?.jenis === "ubah" && (
+						<Button variant="primary" onClick={jalankanKonfirmasiMenu}>Ya, simpan</Button>
+					)}
+					{konfirmasiMenu?.jenis === "tambah" && (
+						<Button variant="primary" onClick={jalankanKonfirmasiMenu}>Ya, tambah</Button>
+					)}
+				</Modal.Footer>
+			</Modal>
+
+			<Modal show={tampilReset} onHide={() => setTampilReset(false)} centered>
+				<Modal.Header closeButton>
+					<Modal.Title>Reset Data</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					Yakin ingin menghapus semua menu tambahan dan pesanan?
+				</Modal.Body>
+				<Modal.Footer>
+					<Button variant="outline-secondary" onClick={() => setTampilReset(false)}>
+						Batal
+					</Button>
+					<Button variant="outline-danger" onClick={resetAdminData}>
+						Ya, reset
+					</Button>
+				</Modal.Footer>
+			</Modal>
 		</Container>
 	);
 }
