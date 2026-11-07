@@ -142,6 +142,143 @@ a {
 	}
 }
 
+.admin-panel {
+	--admin-panel-bg: #fffaf5;
+	--admin-panel-border: #eadbca;
+	--admin-panel-soft: #f8efe4;
+	--admin-panel-accent: #6b2c2c;
+	--admin-panel-text: #3e2723;
+}
+
+.admin-card,
+.admin-login-card {
+	background: var(--admin-panel-bg);
+	border: 1px solid var(--admin-panel-border) !important;
+	border-radius: 18px;
+}
+
+.admin-login-card {
+	margin-top: 3rem;
+}
+
+.admin-stat-label {
+	color: var(--warna-redup);
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
+.admin-stat-value {
+	font-size: clamp(1.6rem, 3vw, 2.2rem);
+	font-weight: 700;
+	color: var(--admin-panel-text);
+}
+
+.admin-tab-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.admin-small-text {
+	font-size: 0.8rem;
+	color: var(--warna-redup);
+}
+
+.admin-chart {
+	display: flex;
+	align-items: end;
+	gap: 0.75rem;
+	height: 220px;
+	padding: 1rem 0.35rem 0;
+	border-radius: 16px;
+	background: linear-gradient(180deg, var(--admin-panel-soft), transparent);
+}
+
+.admin-bar-wrap {
+	flex: 1;
+	display: flex;
+	align-items: end;
+	height: 100%;
+}
+
+.admin-bar {
+	width: 100%;
+	border-radius: 12px 12px 0 0;
+	background: linear-gradient(180deg, #d9946e, #6b2c2c);
+	box-shadow: inset 0 -12px 18px rgb(107 44 44 / 14%);
+}
+
+.admin-activity-item {
+	padding: 0.85rem 0.25rem;
+	background: transparent;
+	border-color: var(--admin-panel-border);
+	color: var(--admin-panel-text);
+}
+
+.admin-table th,
+.admin-table td {
+	vertical-align: middle;
+}
+
+.admin-table thead th {
+	font-size: 0.8rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--warna-redup);
+}
+
+.order-table-card {
+	overflow: hidden;
+}
+
+.order-table-header {
+	padding: 1.5rem 1.5rem 1rem;
+	border-bottom: 1px solid var(--warna-garis);
+}
+
+.admin-order-table {
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #f4efe7;
+}
+
+.admin-order-table th,
+.admin-order-table td {
+	padding: 1rem 1.25rem;
+	border-bottom: 1px solid var(--warna-garis);
+	vertical-align: middle;
+	font-size: 1.05rem;
+}
+
+.admin-order-table thead th {
+	padding-top: 1.1rem;
+	padding-bottom: 1.1rem;
+	font-size: 0.82rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--warna-tinta);
+}
+
+.status-action-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+}
+
+.status-action {
+	min-width: 108px;
+	border-radius: 10px !important;
+	font-weight: 600 !important;
+	padding: 0.5rem 0.9rem !important;
+}
+
+.status-action.active {
+	background: var(--warna-merah) !important;
+	border-color: var(--warna-merah) !important;
+	color: #fff !important;
+}
+
 .dropdown-menu {
 	background: var(--warna-kertas);
 	border: 1px solid var(--warna-garis);

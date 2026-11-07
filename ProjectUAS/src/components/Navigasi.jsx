@@ -5,6 +5,7 @@ const tautan = [
 	{ ke: "/galeri", label: "Galeri" },
 	{ ke: "/menu", label: "Menu" },
 	{ ke: "/ulasan", label: "Ulasan" },
+	{ ke: "/admin", label: "Admin" },
 ];
 
 const menuTentang = [

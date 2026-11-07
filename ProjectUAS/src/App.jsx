@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TataLetak from "./components/TataLetak";
+import Admin from "./halaman/Admin";
 import Beranda from "./halaman/Beranda";
 import Galeri from "./halaman/Galeri";
 import Menu from "./halaman/Menu";
@@ -16,6 +17,7 @@ export default function App() {
 					<Route path="menu" element={<Menu />} />
 					<Route path="ulasan" element={<Ulasan />} />
 					<Route path="tentang" element={<Tentang />} />
+					<Route path="admin" element={<Admin />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

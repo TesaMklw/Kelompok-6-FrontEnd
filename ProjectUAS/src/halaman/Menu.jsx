@@ -28,9 +28,36 @@ const metodeBayar = [
 const daftarMenu = kelompokMenu.flatMap((kelompok) =>
 	kelompok.item.map((item) => ({ ...item, kategori: kelompok.nama })),
 );
+const ADMIN_STORAGE_KEY = "warung-wong-deso-admin";
 
 function teksCari(item) {
 	return `${item.nama} ${item.keterangan} ${item.kategori}`.toLowerCase();
+}
+
+function simpanPesananKeAdmin(pelanggan, pesanan) {
+	if (typeof window === "undefined") return;
+
+	try {
+		const stored = JSON.parse(window.localStorage.getItem(ADMIN_STORAGE_KEY) ?? "{\"menu\":[],\"orders\":[]}");
+		const orderText = pesanan.map((item) => `${item.nama} x${item.jumlah}`).join(", ");
+		const nextOrder = {
+			id: `WD-${Date.now()}`,
+			nama: pelanggan.nama,
+			menu: orderText,
+			total: pesanan.reduce((jumlah, item) => jumlah + item.harga * item.jumlah, 0),
+			status: "Menunggu",
+		};
+
+		window.localStorage.setItem(
+			ADMIN_STORAGE_KEY,
+			JSON.stringify({
+				menu: Array.isArray(stored.menu) ? stored.menu : [],
+				orders: [...(Array.isArray(stored.orders) ? stored.orders : []), nextOrder],
+			}),
+		);
+	} catch {
+		// Abaikan bila penyimpanan lokal tidak tersedia.
+	}
 }
 
 export default function Menu() {
@@ -121,6 +148,7 @@ export default function Menu() {
 
 	function bayar() {
 		if (!metode || pesanan.length === 0) return;
+		simpanPesananKeAdmin(pelanggan, pesanan);
 		sudahBayar.current = true;
 		setBerhasil(true);
 		setTampilKonfirmasi(false);
