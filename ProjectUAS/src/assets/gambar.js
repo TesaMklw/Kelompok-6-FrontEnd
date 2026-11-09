@@ -1,15 +1,15 @@
-import fotoWarung from "./foto-warung-makan-wonddeso.png";
+import fotoWarung from "./nasi tumpeng.jpg";
 import pengunjungIkanBakar from "./pengunjung-ikan-bakar.jpg";
 import pengunjungMakanBersama from "./pengunjung-makan-bersama.jpg";
-import pesananAyamBakar from "./pesanan-ayam-bakar.jpg";
+import pesananAyamBakar from "./Nasi Ayam Bakar.jpeg";
 import pesananNasiKotak from "./pesanan-nasi-kotak.jpg";
-import nasiKotakSiapAntar from "./nasi-kotak-siap-antar.jpg";
+import nasiKotakSiapAntar from "./Nasi-Siap--Antar.jpeg";
 import suasanaWarung from "./suasana-warung.jpg";
 
 export const fotoBeranda = {
 	src: fotoWarung,
-	alt: "Warung makan Wong Deso",
-	keterangan: "Foto warung makan Wong Deso",
+	alt: "Nasi tumpeng dengan lauk dan sayuran",
+	keterangan: "Nasi tumpeng",
 };
 
 export const daftarGaleri = [
@@ -50,4 +50,3 @@ export const daftarGaleri = [
 		alt: "Pengunjung sedang makan di meja warung",
 	},
 ];
-
